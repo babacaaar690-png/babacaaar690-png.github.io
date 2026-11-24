@@ -1,0 +1,922 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Portfolio de Babacar Dieng, designer graphique et motion designer à Dakar : identité visuelle, motion design, montage vidéo et photographie.">
+<meta name="theme-color" content="#141311">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Babacar Dieng · Designer graphique & motion designer">
+<meta property="og:description" content="Portfolio de Babacar Dieng, designer graphique et motion designer à Dakar : identité visuelle, motion design, montage vidéo et photographie.">
+<meta property="og:url" content="https://babacaaar690-png.github.io/">
+<meta property="og:image" content="https://babacaaar690-png.github.io/img/babacar-portrait.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23141311'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23f07a2e'/%3E%3C/svg%3E">
+<title>Babacar Dieng</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Concept : le portfolio se lit comme une timeline de montage. Chaque section est un « plan » repéré par son timecode
+   (police mono), sur une piste or ; le titre géant du nom et les photos sur fond orange donnent la signature.
+   Une seule direction visuelle assumée : encre chaude + papier, accent or, orange du portrait. */
+:root {
+  --ink: #141311;          /* encre chaude : bandes sombres */
+  --ink-2: #1f1d1a;        /* cartes sur encre */
+  --ink-3: #2b2925;        /* filets sur encre */
+  --paper: #f3eee5;        /* papier : bandes claires */
+  --paper-2: #ebe4d7;      /* cartes sur papier */
+  --gold: #e0b04f;         /* accent principal */
+  --orange: #f07a2e;       /* orange du mur des portraits */
+  --text: #1a1815;
+  --muted: #6f685c;
+  --on-ink: #f4efe6;
+  --on-ink-muted: #a39d92;
+  --line: #d9d0c0;
+  --display: "Syne", "Arial Black", system-ui, sans-serif;
+  --body: "Instrument Sans", "Inter", system-ui, -apple-system, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--text); font: 400 17px/1.6 var(--body); }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+::selection { background: var(--gold); color: var(--ink); }
+
+.wrap { max-width: 1220px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+.band { padding-block: clamp(72px, 10vw, 136px); }
+.ink { background: var(--ink); color: var(--on-ink); }
+h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; }
+p { margin: 0; }
+
+/* repère de plan : piste + timecode */
+.cue { display: flex; align-items: center; gap: 14px; font: 500 13px/1 var(--mono); color: var(--muted); margin-bottom: 22px; letter-spacing: .02em; }
+.cue b { font-weight: 500; color: var(--orange); }
+.cue::after { content: ""; flex: 1; max-width: 220px; height: 1px; background: currentColor; opacity: .35; }
+.ink .cue { color: var(--on-ink-muted); }
+.ink .cue b { color: var(--gold); }
+h2 { font-size: clamp(38px, 6vw, 76px); line-height: .98; font-weight: 800; letter-spacing: -.02em; }
+h2 em { font-style: normal; color: var(--orange); }
+.ink h2 em { color: var(--gold); }
+
+/* ---------- barre ---------- */
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30; background: color-mix(in srgb, var(--ink) 92%, transparent); backdrop-filter: blur(12px); color: var(--on-ink); border-bottom: 1px solid var(--ink-3); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 31; background: var(--ink); }
+.bar .wrap { display: flex; align-items: center; justify-content: space-between; height: 62px; gap: 16px; }
+.logo { font: 800 17px/1 var(--display); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+.logo i { width: 10px; height: 10px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 0 4px rgba(240,122,46,.2); animation: rec 1.6s ease-in-out infinite; }
+.bar nav { display: flex; gap: 26px; font-size: 14px; }
+.bar nav a { text-decoration: none; color: var(--on-ink-muted); transition: color .2s; }
+.bar nav a:hover { color: var(--gold); }
+.bar .cta { text-decoration: none; font-weight: 600; font-size: 14px; background: var(--gold); color: var(--ink); padding: 9px 16px; border-radius: 999px; }
+@media (max-width: 900px) { .bar nav { display: none; } }
+
+/* ---------- ouverture ---------- */
+.hero { background: var(--ink); color: var(--on-ink); position: relative; overflow: hidden; }
+.hero .wrap { padding-block: clamp(48px, 7vw, 96px) clamp(40px, 5vw, 70px); position: relative; }
+.hero-top { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; font: 500 13px/1.4 var(--mono); color: var(--on-ink-muted); }
+.hero-top span b { color: var(--gold); font-weight: 500; }
+.name { font: 800 clamp(38px, calc((min(100vw, 1220px) - 48px) / 8.1), 156px)/.86 var(--display); letter-spacing: -.045em; margin-top: 34px; text-transform: uppercase; }
+.name .row:nth-child(2) { text-align: right; }
+.name .row > span { will-change: transform; }
+@media (max-width: 600px) { h2 { overflow-wrap: anywhere; hyphens: auto; } }
+.name .row { display: block; overflow: hidden; padding-bottom: .04em; }
+.name .row > span { display: inline-block; animation: rise 1.1s cubic-bezier(.2,.9,.2,1) both; }
+.name .row:nth-child(2) > span { animation-delay: .1s; color: transparent; -webkit-text-stroke: 2px var(--gold); }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 360px); gap: clamp(28px, 6vw, 96px); align-items: center; margin-top: clamp(32px, 5vw, 64px); }
+.hero-grid > * { min-width: 0; }
+.role { font: 700 clamp(26px, 3.4vw, 46px)/1.08 var(--display); letter-spacing: -.02em; max-width: 16ch; }
+.role span { color: var(--gold); }
+.hero .intro { color: var(--on-ink-muted); max-width: 54ch; margin-top: 16px; font-size: 18px; }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+.btn { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 600; font-size: 15px; padding: 13px 20px; border-radius: 999px; transition: transform .2s, background .2s, color .2s; }
+.btn:hover { transform: translateY(-2px); }
+.btn.solid { background: var(--orange); color: #1a0d05; }
+.btn.ghost { border: 1px solid #4a4741; color: var(--on-ink); }
+.btn.ghost:hover { border-color: var(--gold); color: var(--gold); }
+.frame { position: relative; }
+.frame .img { aspect-ratio: 4/5; overflow: hidden; border-radius: 6px; background: var(--orange); animation: wipe 1.2s cubic-bezier(.7,0,.2,1) .25s both; }
+.frame img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; transform: scale(1.06); animation: settle 2.4s cubic-bezier(.2,.9,.2,1) .25s both; }
+.frame .tc { position: absolute; left: 12px; top: 12px; font-variant-numeric: tabular-nums; font: 500 12px/1 var(--mono); color: #fff; background: rgba(0,0,0,.45); padding: 6px 8px; border-radius: 4px; }
+.frame .tc::before { content: "●"; color: #ff4b3a; margin-right: 6px; }
+.frame .corner { position: absolute; width: 22px; height: 22px; border: 2px solid var(--gold); }
+.frame .c1 { left: -10px; top: -10px; border-right: 0; border-bottom: 0; }
+.frame .c2 { right: -10px; bottom: -10px; border-left: 0; border-top: 0; }
+@media (max-width: 820px) { .hero-grid { grid-template-columns: 1fr; } .frame { max-width: 340px; } }
+
+.ticker { border-top: 1px solid var(--ink-3); background: var(--ink); color: var(--on-ink); overflow: hidden; }
+.ticker .track { display: flex; gap: 40px; width: max-content; padding-block: 18px; animation: marquee 32s linear infinite; font: 700 clamp(18px, 2vw, 24px)/1 var(--display); text-transform: uppercase; letter-spacing: .02em; }
+.ticker .track span { display: flex; align-items: center; gap: 40px; white-space: nowrap; }
+.ticker .track span::after { content: "✦"; color: var(--gold); font-size: .7em; }
+
+/* ---------- profil ---------- */
+.about { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: clamp(32px, 6vw, 96px); margin-top: 20px; align-items: start; }
+.about .big { font: 700 clamp(26px, 3vw, 38px)/1.2 var(--display); letter-spacing: -.01em; }
+.about .big span { color: var(--orange); }
+.about h2 { font-size: clamp(38px, 4.8vw, 66px); }
+.about .txt p { color: #3a362f; }
+.about .txt p + p { margin-top: 16px; }
+.goal { margin-top: 30px; padding: 24px 26px; background: var(--ink); color: var(--on-ink); border-radius: 14px; position: relative; }
+.goal small { font: 500 12px/1 var(--mono); color: var(--gold); letter-spacing: .06em; text-transform: uppercase; }
+.goal p { margin-top: 10px; color: var(--on-ink); }
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-top: 56px; }
+.stat { background: var(--paper); padding: 26px 8px 22px 0; }
+.stat b { display: block; font: 800 clamp(34px, 4.4vw, 56px)/1 var(--display); letter-spacing: -.02em; }
+.stat span { color: var(--muted); font-size: 14px; }
+@media (max-width: 820px) { .about { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .stats { grid-template-columns: 1fr; } .stat { padding-left: 0; } }
+
+/* ---------- expertise ---------- */
+.skills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 52px; border-top: 1px solid var(--ink-3); counter-reset: sk; }
+.skill { counter-increment: sk; overflow: hidden; transition: background .5s; }
+.skill::before { content: "0" counter(sk); position: absolute; right: 22px; top: 26px; font: 500 12px/1 var(--mono); color: var(--on-ink-muted); letter-spacing: .08em; transition: color .3s; }
+.skill::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), rgba(224,176,79,.13), transparent 70%); opacity: 0; transition: opacity .4s; }
+.skill:hover::after { opacity: 1; }
+.skill:hover::before { color: var(--gold); }
+.skill h3 { transition: transform .5s cubic-bezier(.2,.9,.2,1); }
+.skill:hover h3 { transform: translateX(6px); }
+.skill { padding: 30px 26px 34px 0; border-bottom: 1px solid var(--ink-3); position: relative; }
+.skill:not(:nth-child(3n)) { border-right: 1px solid var(--ink-3); }
+.skill:not(:nth-child(3n+1)) { padding-left: 26px; }
+.skill .glyph { width: 46px; height: 46px; color: var(--gold); transition: transform .5s cubic-bezier(.3,1.6,.5,1); }
+.skill:hover .glyph { transform: rotate(-12deg) scale(1.12); }
+.skill h3 { font-size: 24px; margin: 18px 0 10px; }
+.skill p { color: var(--on-ink-muted); font-size: 15px; }
+@media (max-width: 900px) {
+  .skills { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .skill { padding-left: 0 !important; border-right: 0 !important; }
+  .skill:nth-child(odd) { border-right: 1px solid var(--ink-3) !important; padding-right: 22px; }
+  .skill:nth-child(even) { padding-left: 22px !important; }
+}
+@media (max-width: 560px) { .skills { grid-template-columns: 1fr; } .skill { border-right: 0 !important; padding-left: 0 !important; } }
+
+/* ---------- projets ---------- */
+.proj-intro { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; }
+.proj-intro p { color: var(--muted); max-width: 40ch; }
+.feature { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 0; margin-top: 52px; border-radius: 18px; overflow: hidden; background: #16432f; color: #eef3ef; }
+.feature figure { margin: 0; background: #fff; display: grid; place-items: center; padding: 18px; }
+.feature figure img { border-radius: 8px; transition: transform .8s cubic-bezier(.2,.9,.2,1); }
+.feature:hover figure img { transform: scale(1.02); }
+.feature .body { padding: clamp(24px, 3.5vw, 44px); display: flex; flex-direction: column; gap: 16px; }
+.tag { font: 500 12px/1.4 var(--mono); letter-spacing: .04em; text-transform: uppercase; }
+.feature .tag { color: #f2d28e; }
+.feature h3 { font-size: clamp(26px, 3vw, 38px); line-height: 1.05; }
+.feature p { color: #d3e2da; }
+.kv { display: grid; grid-template-columns: max-content 1fr; gap: 10px 20px; font-size: 15px; margin-top: 6px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.16); }
+.kv dt { color: #9fc0af; font: 500 12px/1.9 var(--mono); text-transform: uppercase; }
+.kv dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+@media (max-width: 860px) { .feature { grid-template-columns: 1fr; } }
+
+.brands { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 22px; }
+.brand { background: #fff; border-radius: 14px; overflow: hidden; transition: transform .4s cubic-bezier(.2,.9,.2,1), box-shadow .4s; }
+.brand:hover { transform: translateY(-8px) rotate(-.6deg); box-shadow: 0 24px 50px rgba(30,20,5,.16); }
+.brand figure { margin: 0; aspect-ratio: 5/4; overflow: hidden; display: grid; place-items: center; }
+.brand img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s; }
+.brand:hover img { transform: scale(1.06); }
+.brand .m { padding: 14px 18px 18px; border-top: 1px solid var(--paper-2); }
+.brand h3 { font-size: 18px; }
+.brand p { color: var(--muted); font-size: 14px; margin-top: 2px; }
+@media (max-width: 900px) { .brands { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.mosaic { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, .9fr); gap: 18px; margin-top: 22px; align-items: stretch; }
+.mosaic > figure:not(.swatches) img { height: auto; object-fit: initial; }
+.mosaic figure { margin: 0; border-radius: 14px; overflow: hidden; background: #fff; }
+.mosaic figure img { width: 100%; height: 100%; object-fit: cover; }
+.mosaic .col { display: grid; gap: 18px; }
+.mosaic .note { background: var(--paper-2); border-radius: 14px; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; gap: 24px; }
+.mosaic .note h3 { font-size: 28px; line-height: 1.05; }
+.mosaic .note p { color: var(--muted); }
+.mosaic .note ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; font-weight: 600; font-size: 15px; }
+.mosaic .note li { display: flex; gap: 10px; align-items: center; }
+.mosaic .note li::before { content: ""; width: 18px; height: 2px; background: var(--orange); flex: none; }
+.swatches { background: #fff; padding: 14px; display: grid; gap: 12px; align-content: start; }
+.sw-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.mosaic .swatches .sw-grid img { width: 100%; height: auto; border-radius: 6px; transition: transform .5s cubic-bezier(.2,.9,.2,1); }
+.swatches .sw-grid img:hover { transform: translateY(-3px) scale(1.03); }
+.swatches figcaption { font: 500 12px/1 var(--mono); color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+.m-on .ky-vars.wipe .sw-grid img { transition-delay: var(--d, 0s); }
+@media (max-width: 900px) { .mosaic { grid-template-columns: 1fr 1fr; } .mosaic .note { grid-column: 1 / -1; } }
+@media (max-width: 560px) { .mosaic { grid-template-columns: 1fr; } }
+
+.ky { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.6fr); gap: 0; margin-top: 22px; background: #0d0b0b; color: #f3ece6; border-radius: 18px; overflow: hidden; }
+.ky-side { padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; justify-content: space-between; gap: 24px; }
+.ky .tag { color: #e9a3b4; }
+.ky h3 { font-size: clamp(28px, 3vw, 38px); line-height: 1.05; margin-top: 10px; }
+.ky h3 small { display: block; font: 500 .45em/1.4 var(--mono); color: #b8aaa4; text-transform: uppercase; letter-spacing: .08em; margin-top: 8px; }
+.ky p { color: #b8aaa4; margin-top: 12px; font-size: 15px; }
+.ky-bag { margin: 0; border-radius: 12px; overflow: hidden; max-width: 320px; }
+.ky-bag img { width: 100%; }
+.ky-vars { margin: 0; padding: clamp(14px, 2vw, 22px); background: #171313; display: grid; align-content: center; }
+.ky-vars .sw-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.ky-vars .sw-grid img { width: 100%; height: auto; border-radius: 8px; transition: transform .5s cubic-bezier(.2,.9,.2,1); }
+.ky-vars .sw-grid img:hover { transform: translateY(-4px) scale(1.03); }
+@media (max-width: 860px) { .ky { grid-template-columns: 1fr; } }
+.dk { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1fr) minmax(0, 1fr); gap: 18px; margin-top: 22px; }
+.dk-note { background: #0f2233; color: #e8f3fa; border-radius: 14px; padding: 28px; display: flex; flex-direction: column; justify-content: flex-end; gap: 12px; }
+.dk-note h3 { font-size: 28px; line-height: 1.05; }
+.dk-note p { color: #a9c6d8; }
+.dk figure { margin: 0; border-radius: 14px; overflow: hidden; background: #d9d9d9; }
+.dk figure img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.2,.9,.2,1); }
+@media (max-width: 760px) { .dk { grid-template-columns: 1fr 1fr; } .dk-note { grid-column: 1 / -1; } }
+.photo { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); margin-top: 22px; align-items: center; background: var(--ink); color: var(--on-ink); border-radius: 18px; overflow: hidden; }
+.photo figure { margin: 0; height: 100%; }
+.photo figure img { width: 100%; height: 100%; object-fit: cover; }
+.photo .body { padding: clamp(24px, 3.5vw, 44px) clamp(24px, 3.5vw, 44px) clamp(24px, 3.5vw, 44px) 0; display: grid; gap: 14px; }
+.photo .tag { color: var(--gold); }
+.photo h3 { font-size: clamp(26px, 3vw, 38px); line-height: 1.05; }
+.photo h3 small { display: block; font: 500 .5em/1.4 var(--body); color: var(--on-ink-muted); margin-top: 8px; }
+.photo p { color: var(--on-ink-muted); }
+.photo .kv { border-color: var(--ink-3); }
+.photo .kv dt { color: var(--on-ink-muted); }
+@media (max-width: 860px) { .photo { grid-template-columns: 1fr; } .photo .body { padding: 0 24px 28px; } }
+
+/* ---------- vidéo & motion ---------- */
+.reel { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 48px; }
+.clip { background: var(--ink-2); border: 1px solid var(--ink-3); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; }
+.clip.big { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); }
+.clip video { width: 100%; aspect-ratio: 16/9; display: block; background: #000; }
+.clip .cap { padding: 18px 20px 22px; display: grid; gap: 8px; align-content: start; }
+.clip.big .cap { padding: clamp(22px, 3vw, 36px); align-content: center; }
+.clip .tag { color: var(--gold); }
+.clip h3 { font-size: 21px; line-height: 1.15; }
+.clip.big h3 { font-size: clamp(26px, 3vw, 36px); }
+.clip p { color: var(--on-ink-muted); font-size: 14px; }
+@media (max-width: 900px) { .reel { grid-template-columns: 1fr; } .clip.big { grid-template-columns: 1fr; } }
+.av { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 48px; }
+.av article { border-radius: 18px; padding: clamp(24px, 3vw, 36px); background: var(--ink-2); border: 1px solid var(--ink-3); display: grid; gap: 14px; align-content: start; }
+.av h3 { font-size: 30px; }
+.av p { color: var(--on-ink-muted); font-size: 15px; max-width: 48ch; }
+.av .tag { color: var(--gold); }
+.nle { margin-top: 18px; background: #0d0c0b; border-radius: 10px; padding: 14px; display: grid; gap: 8px; position: relative; overflow: hidden; }
+.nle .lane { display: flex; gap: 4px; height: 18px; }
+.nle .lane i { border-radius: 3px; }
+.nle .ruler { font: 500 10px/1 var(--mono); color: #6f6a62; display: flex; justify-content: space-between; padding-bottom: 4px; }
+.nle .head { position: absolute; top: 8px; bottom: 8px; width: 2px; background: var(--orange); left: 10%; animation: playhead 6s linear infinite; }
+.nle .head::before { content: ""; position: absolute; top: -2px; left: -4px; border: 5px solid transparent; border-top-color: var(--orange); }
+.curve { margin-top: 18px; background: #0d0c0b; border-radius: 10px; padding: 14px; }
+.curve svg { width: 100%; height: auto; }
+.curve .dotm { animation: ease 2.4s cubic-bezier(.68,-0.35,.27,1.35) infinite alternate; }
+@media (max-width: 820px) { .av { grid-template-columns: 1fr; } }
+
+/* ---------- parcours (CV) ---------- */
+.cv { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 72px); margin-top: 52px; }
+.tl { list-style: none; margin: 0; padding: 0; position: relative; display: grid; gap: 30px; }
+.tl::before { content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: var(--line); }
+.tl li { position: relative; padding-left: 38px; }
+.tl li::before { content: ""; position: absolute; left: 0; top: 6px; width: 16px; height: 16px; border-radius: 50%; background: var(--paper); border: 3px solid var(--orange); }
+.tl li.now::before { background: var(--orange); box-shadow: 0 0 0 6px rgba(240,122,46,.18); }
+.tl .when { font: 500 13px/1.4 var(--mono); color: var(--orange); }
+.tl h3 { font-size: 24px; margin-top: 6px; }
+.tl .where { color: var(--muted); font-size: 14px; }
+.tl .job { font-weight: 600; margin-top: 8px; }
+.tl p { color: #4a463e; font-size: 15px; margin-top: 6px; }
+.side { display: grid; gap: 18px; align-content: start; }
+.panel { background: var(--paper-2); border-radius: 16px; padding: 24px; }
+.panel h3 { font-size: 20px; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.panel h3 small { font: 500 12px/1 var(--mono); color: var(--muted); }
+.edu { display: grid; gap: 14px; }
+.edu div { display: grid; grid-template-columns: 92px 1fr; gap: 12px; }
+.edu b { font: 500 13px/1.5 var(--mono); color: var(--orange); }
+.edu span { font-size: 15px; }
+.edu span em { display: block; font-style: normal; color: var(--muted); font-size: 14px; }
+.apps { display: flex; flex-wrap: wrap; gap: 8px; }
+.apps span { background: var(--paper); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; font-size: 14px; font-weight: 500; transition: background .2s, color .2s; }
+.apps span:hover { background: var(--ink); color: var(--gold); border-color: var(--ink); }
+.langs { display: grid; gap: 12px; }
+.lang { display: grid; grid-template-columns: 84px 1fr; gap: 12px; align-items: center; font-size: 15px; }
+.lang .meter { height: 6px; border-radius: 3px; background: var(--line); overflow: hidden; }
+.lang .meter i { display: block; height: 100%; background: var(--orange); border-radius: 3px; }
+.lang small { grid-column: 2; color: var(--muted); font-size: 13px; margin-top: -8px; }
+.likes { display: flex; gap: 10px; flex-wrap: wrap; }
+.likes span { font-size: 15px; font-weight: 600; }
+.likes span + span::before { content: "·"; color: var(--orange); margin-right: 10px; }
+@media (max-width: 900px) { .cv { grid-template-columns: 1fr; } }
+
+/* ---------- IA ---------- */
+.ia { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 22px; margin-top: 48px; align-items: stretch; }
+.ia .lead { font: 600 clamp(20px, 2.2vw, 26px)/1.35 var(--display); }
+.ia .cert { margin-top: 26px; display: flex; gap: 16px; align-items: center; background: var(--ink-2); border: 1px solid var(--ink-3); border-radius: 14px; padding: 18px 20px; }
+.ia .cert svg { width: 44px; height: 44px; flex: none; color: var(--gold); }
+.ia .cert small { font: 500 12px/1 var(--mono); color: var(--gold); text-transform: uppercase; }
+.ia .cert b { display: block; font: 700 19px/1.25 var(--display); margin-top: 6px; }
+.ia ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; background: var(--ink-2); border: 1px solid var(--ink-3); border-radius: 16px; overflow: hidden; }
+.ia ol li { padding: 18px 22px; border-bottom: 1px solid var(--ink-3); display: grid; grid-template-columns: 40px 1fr; gap: 10px; }
+.ia ol li span { font: 500 13px/1.6 var(--mono); color: var(--gold); }
+.ia ol li:last-child { border-bottom: 0; color: var(--on-ink-muted); font-style: italic; display: block; }
+@media (max-width: 820px) { .ia { grid-template-columns: 1fr; } }
+
+/* ---------- contact ---------- */
+.contact { position: relative; overflow: hidden; }
+.contact .wrap { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+.contact h2 { font-size: clamp(48px, 9vw, 128px); line-height: .88; }
+.contact .sub { color: var(--on-ink-muted); max-width: 48ch; margin-top: 22px; font-size: 18px; }
+.lines { display: grid; gap: 0; margin-top: 34px; max-width: 760px; border-top: 1px solid var(--ink-3); }
+.line { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 18px 0; border-bottom: 1px solid var(--ink-3); }
+.line div { min-width: 0; }
+.line small { display: block; font: 500 12px/1 var(--mono); color: var(--on-ink-muted); text-transform: uppercase; letter-spacing: .06em; }
+.line b { display: block; font: 700 clamp(18px, 2vw, 22px)/1.3 var(--display); margin-top: 6px; overflow-wrap: anywhere; user-select: all; }
+.line b a { text-decoration: none; background-image: linear-gradient(var(--gold), var(--gold)); background-size: 0 1px; background-repeat: no-repeat; background-position: 0 100%; transition: color .2s, background-size .4s cubic-bezier(.2,.9,.2,1); }
+.line b a:hover, .line b a:focus-visible { color: var(--gold); background-size: 100% 1px; }
+.line button { flex: none; background: transparent; color: var(--gold); border: 1px solid var(--gold); border-radius: 999px; padding: 8px 16px; font: 600 13px var(--body); cursor: pointer; transition: background .2s, color .2s; }
+.line button:hover { background: var(--gold); color: var(--ink); }
+.contact .frame { max-width: 380px; justify-self: end; width: 100%; }
+.contact .frame .img { background: #5b1d26; }
+@media (max-width: 820px) { .contact .wrap { grid-template-columns: 1fr; } .contact .frame { justify-self: start; max-width: 300px; } }
+footer { background: var(--ink); color: var(--on-ink-muted); font: 500 12px/1.5 var(--mono); }
+footer .wrap { padding-block: 22px; border-top: 1px solid var(--ink-3); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+
+/* ---------- bouton et vue CV ---------- */
+.acts { display: flex; gap: 10px; align-items: center; }
+.cvbtn { text-decoration: none; font-weight: 600; font-size: 14px; color: var(--on-ink); border: 1px solid #4a4741; padding: 8px 14px; border-radius: 999px; transition: border-color .2s, color .2s; }
+.cvbtn:hover { border-color: var(--gold); color: var(--gold); }
+.cvcard { background: var(--paper-2); border-radius: 18px; padding: 18px; display: grid; grid-template-columns: 140px 1fr; gap: 18px; align-items: center; align-self: start; transition: transform .3s; }
+.cvcard:hover { transform: translateY(-4px); }
+.cvcard img { border-radius: 8px; box-shadow: 0 10px 24px rgba(30,20,5,.18); transform: rotate(-3deg); }
+.cvcard small { font: 500 12px/1 var(--mono); color: var(--orange); text-transform: uppercase; }
+.cvcard b { display: block; font: 700 22px/1.2 var(--display); margin: 8px 0 16px; }
+body.cv-open > :not(#cv-view):not(.bar) { display: none !important; }
+.cvview { background: var(--paper); min-height: 100vh; }
+.cvbar { background: var(--ink); color: var(--on-ink-muted); font: 500 13px/1 var(--mono); }
+.cvbar .wrap { display: flex; justify-content: space-between; gap: 12px; padding-block: 16px; flex-wrap: wrap; }
+.back { text-decoration: none; color: var(--gold); }
+.cvbody { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); padding-block: 40px 80px; align-items: start; }
+.sheet { margin: 0; border-radius: 6px; overflow: hidden; box-shadow: 0 30px 70px rgba(30,20,5,.2); animation: lift .7s cubic-bezier(.2,.9,.2,1) both; }
+.goalp p { color: #4a463e; }
+@keyframes lift { from { transform: translateY(30px); opacity: 0; } to { transform: none; opacity: 1; } }
+@media (max-width: 900px) { .cvbody { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .cvcard { grid-template-columns: 90px 1fr; } .bar .cta { display: none; } }
+
+
+/* ---------- galerie portraits + visionneuse ---------- */
+.album { background: var(--ink); color: var(--on-ink); border-radius: 18px; margin-top: 12px; padding: clamp(20px, 3vw, 36px); }
+.album-grid { columns: 2 300px; column-gap: clamp(18px, 2.5vw, 32px); }
+.album figure { margin: 0 0 clamp(22px, 3vw, 36px); break-inside: avoid; }
+.album .shot { border-radius: 8px; }
+.album figcaption { margin-top: 12px; color: var(--on-ink-muted); font-size: 14.5px; line-height: 1.55; max-width: 60ch; }
+.lb-cap { position: absolute; left: 50%; transform: translateX(-50%); bottom: calc(env(safe-area-inset-bottom, 0px) + 14px); width: min(760px, calc(100% - 32px)); text-align: center; color: var(--on-ink-muted); font-size: 14px; line-height: 1.5; }
+
+.portraits { margin-top: 22px; background: var(--paper-2); border-radius: 18px; padding: clamp(20px, 3vw, 36px); }
+.phead { display: flex; justify-content: space-between; align-items: end; gap: 20px; flex-wrap: wrap; }
+.phead h3 { font-size: clamp(24px, 2.8vw, 34px); line-height: 1.05; margin-top: 8px; }
+.phead p { color: var(--muted); max-width: 46ch; font-size: 15px; }
+.pgrid { margin-top: 24px; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; }
+.pgrid .shot { grid-column: span 2; margin: 0; aspect-ratio: 4/5; }
+.pgrid .shot:nth-child(-n+2) { grid-column: span 3; }
+.pgrid .shot img { height: 100%; object-fit: cover; object-position: 50% 15%; }
+@media (max-width: 700px) { .pgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } .pgrid .shot, .pgrid .shot:nth-child(-n+2) { grid-column: span 1; } .pgrid .shot:first-child { grid-column: 1 / -1; } }
+.shot { all: unset; display: block; width: 100%; margin-bottom: 14px; border-radius: 10px; overflow: hidden; cursor: zoom-in; break-inside: avoid; position: relative; }
+.shot img { width: 100%; transition: transform .6s cubic-bezier(.2,.9,.2,1), filter .4s; }
+.shot:hover img { transform: scale(1.05); }
+.shot:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.lb { position: fixed; inset: 0; z-index: 50; background: #0c0b0a; display: grid; grid-template-columns: 64px 1fr 64px; align-items: center; padding: calc(env(safe-area-inset-top, 0px) + 56px) max(12px, env(safe-area-inset-right, 0px)) calc(env(safe-area-inset-bottom, 0px) + 110px) max(12px, env(safe-area-inset-left, 0px)); }
+.lb img { max-height: calc(100vh - 210px); max-width: 100%; margin: auto; border-radius: 6px; animation: lbin .35s cubic-bezier(.2,.9,.2,1); }
+.lb button { all: unset; cursor: pointer; color: var(--on-ink); font: 600 28px/1 var(--body); width: 48px; height: 48px; display: grid; place-items: center; border-radius: 50%; border: 1px solid #4a4741; justify-self: center; }
+.lb button:hover, .lb button:focus-visible { border-color: var(--gold); color: var(--gold); }
+.lb .x { position: absolute; top: calc(env(safe-area-inset-top, 0px) + 10px); right: max(12px, env(safe-area-inset-right, 0px)); font-size: 22px; }
+.lb .count { position: absolute; top: calc(env(safe-area-inset-top, 0px) + 22px); left: max(16px, env(safe-area-inset-left, 0px)); font: 500 13px/1 var(--mono); color: var(--on-ink-muted); }
+.lb[hidden] { display: none; }
+@keyframes lbin { from { opacity: 0; transform: scale(.97); } to { opacity: 1; transform: none; } }
+@media (max-width: 560px) { .lb { grid-template-columns: 44px 1fr 44px; } .lb button { width: 40px; height: 40px; } }
+
+/* ---------- système de motion (activé par JS, respecte la réduction des animations) ---------- */
+.progress { position: absolute; left: 0; bottom: -1px; height: 2px; width: 100%; background: var(--gold); transform-origin: 0 50%; transform: scaleX(var(--p, 0)); }
+.m-on .rv { opacity: 0; transform: translateY(36px); transition: opacity .9s cubic-bezier(.2,.8,.2,1), transform 1.1s cubic-bezier(.16,1,.3,1); transition-delay: var(--d, 0s); }
+.m-on .rv.in { opacity: 1; transform: none; }
+.m-on .wipe img { clip-path: inset(100% 0 0 0); transform: scale(1.18); transition: clip-path 1.3s cubic-bezier(.77,0,.18,1), transform 1.8s cubic-bezier(.16,1,.3,1); transition-delay: var(--d, 0s); }
+.m-on .wipe.in img { clip-path: inset(0 0 0 0); transform: scale(1); }
+.m-on .wipe.in:hover img { transform: scale(1.05); transition-delay: 0s; transition-duration: .7s; }
+.w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .12em; margin-bottom: -.12em; }
+.w > i { display: inline-block; font-style: normal; }
+.m-on .split .w > i { transform: translateY(105%) rotate(4deg); transform-origin: 0 100%; transition: transform 1.1s cubic-bezier(.16,1,.3,1); transition-delay: calc(var(--d, 0s) + var(--wi) * 55ms); }
+.m-on .split.in .w > i { transform: none; }
+.mag { transition: transform .35s cubic-bezier(.2,.9,.2,1), background .2s, color .2s, border-color .2s; }
+@keyframes rise { from { transform: translateY(110%); } to { transform: none; } }
+@keyframes wipe { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0); } }
+@keyframes settle { to { transform: scale(1); } }
+@keyframes marquee { to { transform: translateX(-50%); } }
+@keyframes rec { 50% { opacity: .35; } }
+@keyframes playhead { from { left: 4%; } to { left: 96%; } }
+@keyframes ease { from { transform: translateX(0); } to { transform: translateX(250px); } }
+@media (prefers-reduced-motion: reduce) { .progress { display: none; } *, *::before, *::after { animation: none !important; transition: none !important; } html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+<header class="bar">
+  <div class="wrap">
+    <a class="logo" href="#top"><i aria-hidden="true"></i>Babacar Dieng</a>
+    <nav aria-label="Sections">
+      <a href="#profil">Profil</a><a href="#expertise">Expertise</a><a href="#projets">Projets</a><a href="#video">Vidéos</a><a href="#parcours">Parcours</a><a href="#ia">IA</a>
+    </nav>
+    <div class="acts"><a class="cvbtn" href="#cv">CV</a><a class="cta mag" href="#contact">Me contacter</a></div>
+  </div>
+  <span class="progress" aria-hidden="true"></span>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-top"><span><b>REC</b> Portfolio professionnel 2026</span><span>Dakar · Sénégal</span></div>
+    <h1 class="name"><span class="row"><span>Babacar</span></span><span class="row"><span>Dieng</span></span></h1>
+    <div class="hero-grid">
+      <div>
+        <p class="role">Designer graphique <span>&amp;</span> motion designer</p>
+        <p class="intro">Technicien supérieur en art graphique et numérique. Je conçois des visuels, des vidéos et des animations qui transmettent un message avec clarté, cohérence et impact.</p>
+        <div class="hero-actions">
+          <a class="btn solid mag" href="#projets">Voir les projets</a>
+          <a class="btn ghost mag" href="#cv">Voir mon CV</a>
+        </div>
+      </div>
+      <div class="frame">
+        <div class="img"><img src="img/babacar-portrait.jpg" alt="Portrait de Babacar Dieng devant un mur orange"></div>
+        <span class="tc" id="rec">00:00:00:00</span>
+        <span class="corner c1" aria-hidden="true"></span><span class="corner c2" aria-hidden="true"></span>
+      </div>
+    </div>
+  </div>
+  <div class="ticker" aria-hidden="true">
+    <div class="track">
+      <span>Identité visuelle</span><span>Motion design</span><span>Montage vidéo</span><span>Photographie</span><span>Communication digitale</span><span>Habillage graphique</span>
+      <span>Identité visuelle</span><span>Motion design</span><span>Montage vidéo</span><span>Photographie</span><span>Communication digitale</span><span>Habillage graphique</span>
+    </div>
+  </div>
+</section>
+
+<main>
+  <section class="band" id="profil">
+    <div class="wrap">
+      <div class="cue"><b>00:00:05</b> Profil</div>
+      <div class="about">
+        <div>
+          <h2>Créer des images qui ont <em>du sens.</em></h2>
+        </div>
+        <div class="txt">
+          <p class="big">Créatif spécialisé en <span>conception visuelle</span>, montage vidéo et <span>motion design</span>.</p>
+          <p style="margin-top:22px">Formé en art graphique et numérique à l'ISEP de Thiès (2023–2025), j'ai développé une approche polyvalente qui associe sens esthétique, maîtrise des outils de création et compréhension des besoins de communication.</p>
+          <p>Aujourd'hui, je mobilise ces compétences dans des projets de communication digitale et de marketing, avec l'envie de contribuer à des marques, entreprises et initiatives porteuses de sens.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band ink" id="expertise">
+    <div class="wrap">
+      <div class="cue"><b>00:00:12</b> Compétences</div>
+      <h2>Mes domaines <em>d'expertise</em></h2>
+      <div class="skills">
+        <article class="skill">
+          <svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M8 40 L24 8 L40 40 Z"/><circle cx="24" cy="30" r="5"/></svg>
+          <h3>Conception visuelle</h3><p>Identité visuelle, logos, affiches, chartes graphiques, mockups et supports de communication.</p>
+        </article>
+        <article class="skill">
+          <svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 38 C18 38 18 10 42 10"/><circle cx="42" cy="10" r="4" fill="currentColor"/><circle cx="6" cy="38" r="4"/></svg>
+          <h3>Motion design</h3><p>Animation typographique et graphique, habillage visuel, transitions et narration animée.</p>
+        </article>
+        <article class="skill">
+          <svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="6" y="12" width="36" height="24" rx="3"/><path d="M6 20 H42 M14 12 V20 M24 12 V20 M34 12 V20"/></svg>
+          <h3>Production audiovisuelle</h3><p>Montage vidéo, rythme, transitions, traitement audio et finition.</p>
+        </article>
+        <article class="skill">
+          <svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="6" y="14" width="36" height="26" rx="4"/><circle cx="24" cy="27" r="7"/><path d="M17 14 L20 8 H28 L31 14"/></svg>
+          <h3>Photographie</h3><p>Prise de vue, cadrage, composition, retouche photo, photomontage et narration documentaire.</p>
+        </article>
+        <article class="skill">
+          <svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="12" y="6" width="24" height="36" rx="4"/><path d="M20 36 H28 M17 14 H31 M17 20 H27"/></svg>
+          <h3>Communication digitale</h3><p>Création de contenus, gestion des réseaux sociaux et planification des publications.</p>
+        </article>
+        <article class="skill">
+          <svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M8 38 L18 26 L26 32 L40 12"/><path d="M32 12 H40 V20"/></svg>
+          <h3>Marketing digital</h3><p>Conception de supports pour accompagner des campagnes et développer la visibilité d'une marque.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="projets">
+    <div class="wrap">
+      <div class="cue"><b>00:00:24</b> Sélection de projets</div>
+      <div class="proj-intro">
+        <h2>Des projets, <em>du concept au support.</em></h2>
+        <p>Identités de marque, chartes graphiques, photographie documentaire et campagne financière.</p>
+      </div>
+
+      <article class="feature">
+        <figure><img src="img/ape-sn02-2026.jpg" alt="Visuel de campagne de l'emprunt obligataire de l'État du Sénégal, 200 milliards FCFA"></figure>
+        <div class="body">
+          <span class="tag">Projet professionnel · Invictus Capital &amp; Finance</span>
+          <h3>APE SN02 2026 — État du Sénégal</h3>
+          <p>Contribution à la conception des supports de communication et de marketing d'un emprunt obligataire par appel public à l'épargne.</p>
+          <dl class="kv"><dt>Montant</dt><dd>200 milliards FCFA</dd><dt>Souscription</dt><dd>23 sept. – 13 oct. 2026</dd><dt>Émissions</dt><dd>3, 5, 7 et 10 ans</dd><dt>Taux</dt><dd>6,40 % à 6,95 %</dd></dl>
+        </div>
+      </article>
+
+      <div class="brands">
+        <article class="brand"><figure><img src="img/sunu-cereales.jpg" alt="Logo Sunu Céréales"></figure><div class="m"><h3>Sunu Céréales</h3><p>Identité de marque · agroalimentaire</p></div></article>
+        <article class="brand"><figure><img src="img/ovale.jpg" alt="Logo Ovale"></figure><div class="m"><h3>Ovale</h3><p>Identité visuelle · univers de l'eau</p></div></article>
+        <article class="brand"><figure><img src="img/darou-khoudoss.jpg" alt="Sac blanc avec le logo Darou Khoudoss Ameublement"></figure><div class="m"><h3>Darou Khoudoss</h3><p>Mockup et présentation visuelle</p></div></article>
+      </div>
+
+      <div class="mosaic">
+        <figure><img src="img/charte-naat-2.jpg" alt="Charte graphique NAAT : logos, palette de couleurs, typographie et exemples d'application"></figure>
+        <figure><img src="img/charte-naat.jpg" alt="Charte graphique Naat : palette, typographie et papeterie"></figure>
+        <div class="note">
+          <div>
+            <span class="tag" style="color:var(--orange)">Design graphique</span>
+            <h3 style="margin-top:10px">Chartes &amp; déclinaisons</h3>
+            <p style="margin-top:12px">Je travaille la hiérarchie de l'information, les couleurs, la typographie et la composition pour rendre chaque support lisible et cohérent avec son univers.</p>
+          </div>
+          <ul><li>Affiches et supports de communication</li><li>Mockups et présentations de marque</li><li>Logos et cohérence visuelle</li></ul>
+        </div>
+      </div>
+
+      <div class="dk">
+        <div class="dk-note">
+          <span class="tag" style="color:var(--orange)">Identité visuelle · déclinaisons</span>
+          <h3>Darou Khoudoss Ameublement</h3>
+          <p>Application du logo sur différents supports pour vérifier sa lisibilité et sa cohérence : coque de téléphone et t-shirt.</p>
+        </div>
+        <figure><img src="img/darou/darou-coque.jpg" alt="Logo Darou Khoudoss Ameublement sur une coque de téléphone" loading="lazy"></figure>
+        <figure><img src="img/darou/darou-tshirt.jpg" alt="Logo Darou Khoudoss Ameublement sur un t-shirt blanc" loading="lazy"></figure>
+      </div>
+
+      <article class="ky">
+        <div class="ky-side">
+          <div>
+            <span class="tag">Identité de marque · déclinaisons</span>
+            <h3>Kyash<small>Yacine Aro Shop</small></h3>
+            <p>Le logo appliqué sur support et décliné en 8 combinaisons de couleurs, pour s'adapter à chaque usage tout en gardant la même identité.</p>
+          </div>
+          <figure class="ky-bag"><img src="img/kyash-mockup.jpg" alt="Sac noir avec le logo Kyash" loading="lazy"></figure>
+        </div>
+        <figure class="ky-vars"><div class="sw-grid"><img src="img/kyash/kyash-variante-1.jpg" alt="Logo Kyash, Yacine Aro Shop, sur fond rouge" loading="lazy" style="--d:0.00s"><img src="img/kyash/kyash-variante-2.jpg" alt="Logo Kyash, Yacine Aro Shop, sur fond corail" loading="lazy" style="--d:0.06s"><img src="img/kyash/kyash-variante-3.jpg" alt="Logo Kyash, Yacine Aro Shop, sur fond violet" loading="lazy" style="--d:0.12s"><img src="img/kyash/kyash-variante-4.jpg" alt="Logo Kyash, Yacine Aro Shop, sur fond pêche" loading="lazy" style="--d:0.18s"><img src="img/kyash/kyash-variante-5.jpg" alt="Logo Kyash, Yacine Aro Shop, sur fond ocre" loading="lazy" style="--d:0.24s"><img src="img/kyash/kyash-variante-6.jpg" alt="Logo Kyash, Yacine Aro Shop, sur fond bordeaux" loading="lazy" style="--d:0.30s"><img src="img/kyash/kyash-variante-7.jpg" alt="Logo Kyash, Yacine Aro Shop, sur fond noir, logo crème" loading="lazy" style="--d:0.36s"><img src="img/kyash/kyash-variante-8.jpg" alt="Logo Kyash, Yacine Aro Shop, sur fond noir, logo bronze" loading="lazy" style="--d:0.42s"></div></figure>
+      </article>
+
+      <article class="portraits">
+        <div class="phead">
+          <div><span class="tag" style="color:var(--orange)">Photographie · portrait corporate</span><h3>Direction générale — Invictus Capital &amp; Finance</h3></div>
+          <p>Série de portraits du directeur général : lumière naturelle, cadrages en pied, assis et au bureau, pour la communication institutionnelle.</p>
+        </div>
+        <div class="pgrid">
+          <button type="button" class="shot" data-i="0"><img src="img/portraits-dg/portrait-dg-01.jpg" alt="Portrait du directeur général d'Invictus Capital &amp; Finance, photo 1" loading="lazy"></button>
+          <button type="button" class="shot" data-i="1"><img src="img/portraits-dg/portrait-dg-03.jpg" alt="Portrait du directeur général d'Invictus Capital &amp; Finance, photo 2" loading="lazy"></button>
+          <button type="button" class="shot" data-i="2"><img src="img/portraits-dg/portrait-dg-05.jpg" alt="Portrait du directeur général d'Invictus Capital &amp; Finance, photo 3" loading="lazy"></button>
+          <button type="button" class="shot" data-i="3"><img src="img/portraits-dg/portrait-dg-07.jpg" alt="Portrait du directeur général d'Invictus Capital &amp; Finance, photo 4" loading="lazy"></button>
+          <button type="button" class="shot" data-i="4"><img src="img/portraits-dg/portrait-dg-09.jpg" alt="Portrait du directeur général d'Invictus Capital &amp; Finance, photo 5" loading="lazy"></button>
+          <button type="button" class="shot" data-i="5"><img src="img/portraits-dg/portrait-dg-02.jpg" alt="Portrait du directeur général d'Invictus Capital &amp; Finance, photo 6" loading="lazy"></button>
+          <button type="button" class="shot" data-i="6"><img src="img/portraits-dg/portrait-dg-04.jpg" alt="Portrait du directeur général d'Invictus Capital &amp; Finance, photo 7" loading="lazy"></button>
+          <button type="button" class="shot" data-i="7"><img src="img/portraits-dg/portrait-dg-06.jpg" alt="Portrait du directeur général d'Invictus Capital &amp; Finance, photo 8" loading="lazy"></button>
+          <button type="button" class="shot" data-i="8"><img src="img/portraits-dg/portrait-dg-08.jpg" alt="Portrait du directeur général d'Invictus Capital &amp; Finance, photo 9" loading="lazy"></button>
+          <button type="button" class="shot" data-i="9"><img src="img/portraits-dg/portrait-dg-10.jpg" alt="Portrait du directeur général d'Invictus Capital &amp; Finance, photo 10" loading="lazy"></button>
+          <button type="button" class="shot" data-i="10"><img src="img/portraits-dg/portrait-dg-11.jpg" alt="Portrait du directeur général d'Invictus Capital &amp; Finance, photo 11" loading="lazy"></button>
+        </div>
+      </article>
+
+      <article class="photo">
+        <figure><img src="img/erosion-saly.jpg" alt="Série photographique « Les rivages en fuite » sur l'érosion côtière à Saly"></figure>
+        <div class="body">
+          <span class="tag">Photographie documentaire · projet personnel</span>
+          <h3>Les rivages en fuite<small>L'érosion côtière à Saly, Sénégal</small></h3>
+          <p>Une série qui documente les impacts environnementaux et sociaux de l'érosion sur le littoral, par l'observation, la composition, la lumière et la narration visuelle.</p>
+          <dl class="kv"><dt>Lieu</dt><dd>Plage de Saly</dd><dt>Prise de vue</dt><dd>4 juillet 2025</dd></dl>
+        </div>
+      </article>
+      <div class="album">
+        <div class="album-grid">
+          <figure>
+            <button type="button" class="shot"><img src="img/erosion/erosion-plage-orage.jpg" alt="Sous un ciel menaçant, la mer avance avec force sur une plage paisible. Cette scène dramatique illustre l’impact croissant des phénomènes climatiques extrêmes sur les littoraux. Entre beauté naturelle et menace silencieuse, l’image appelle à la conscience écologique et à l’urgence d’agir face aux dérèglements climatiques." loading="lazy"></button>
+            <figcaption>Sous un ciel menaçant, la mer avance avec force sur une plage paisible. Cette scène dramatique illustre l’impact croissant des phénomènes climatiques extrêmes sur les littoraux. Entre beauté naturelle et menace silencieuse, l’image appelle à la conscience écologique et à l’urgence d’agir face aux dérèglements climatiques.</figcaption>
+          </figure>
+          <figure>
+            <button type="button" class="shot"><img src="img/erosion/erosion-batiment-volets.jpg" alt="Ce bâtiment, partiellement effondré, témoigne d’un patrimoine architectural en déclin. À ses pieds, les volets et planches jonchent le sol, derniers témoins d’un lieu jadis vivant." loading="lazy"></button>
+            <figcaption>Ce bâtiment, partiellement effondré, témoigne d’un patrimoine architectural en déclin. À ses pieds, les volets et planches jonchent le sol, derniers témoins d’un lieu jadis vivant.</figcaption>
+          </figure>
+          <figure>
+            <button type="button" class="shot"><img src="img/erosion/erosion-couloir-voute.jpg" alt="Couloir voûté en ruine, marqué par le temps et envahi par la terre et les débris. Une architecture autrefois fonctionnelle, aujourd’hui laissée à l’abandon." loading="lazy"></button>
+            <figcaption>Couloir voûté en ruine, marqué par le temps et envahi par la terre et les débris. Une architecture autrefois fonctionnelle, aujourd’hui laissée à l’abandon.</figcaption>
+          </figure>
+          <figure>
+            <button type="button" class="shot"><img src="img/erosion/erosion-batiment-chaume.jpg" alt="Ancien bâtiment en ruine recouvert d’un toit de chaume en décomposition, laissé à l’abandon sous un ciel nuageux. Les vitres cassées et la végétation envahissante témoignent du passage du temps." loading="lazy"></button>
+            <figcaption>Ancien bâtiment en ruine recouvert d’un toit de chaume en décomposition, laissé à l’abandon sous un ciel nuageux. Les vitres cassées et la végétation envahissante témoignent du passage du temps.</figcaption>
+          </figure>
+          <figure>
+            <button type="button" class="shot"><img src="img/erosion/erosion-facade-vegetation.jpg" alt="Façade délabrée d’un ancien bâtiment aux fenêtres ouvertes sur le vide, cernée par une végétation sèche et clairsemée. Les murs noircis et le sol aride reflètent des années d’abandon sous un climat rude." loading="lazy"></button>
+            <figcaption>Façade délabrée d’un ancien bâtiment aux fenêtres ouvertes sur le vide, cernée par une végétation sèche et clairsemée. Les murs noircis et le sol aride reflètent des années d’abandon sous un climat rude.</figcaption>
+          </figure>
+          <figure>
+            <button type="button" class="shot"><img src="img/erosion/erosion-filets-silhouette.jpg" alt="Sous les voiles effilochés du silence, une silhouette contemple les ruines d’un monde suspendu. Entre ombre et oubli, le passé tisse ses toiles." loading="lazy"></button>
+            <figcaption>Sous les voiles effilochés du silence, une silhouette contemple les ruines d’un monde suspendu. Entre ombre et oubli, le passé tisse ses toiles.</figcaption>
+          </figure>
+          <figure>
+            <button type="button" class="shot"><img src="img/erosion/erosion-mur-fissure.jpg" alt="Mur fissuré, mémoire fracturée : cette façade dénudée révèle les strates d’un passé en décomposition. Témoin silencieux d’un temps révolu, elle incarne la fragilité des constructions humaines face à l’érosion du temps." loading="lazy"></button>
+            <figcaption>Mur fissuré, mémoire fracturée : cette façade dénudée révèle les strates d’un passé en décomposition. Témoin silencieux d’un temps révolu, elle incarne la fragilité des constructions humaines face à l’érosion du temps.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band ink" id="video">
+    <div class="wrap">
+      <div class="cue"><b>00:00:41</b> Audiovisuel</div>
+      <h2>Vidéo &amp; <em>motion design</em></h2>
+      <div class="reel">
+        <article class="clip big">
+          <video controls preload="none" playsinline poster="img/poster-fctc-bidc.jpg"><source src="videos/fctc-bidc.mp4" type="video/mp4"></video>
+          <div class="cap"><span class="tag">Film d'opération · 1 min 26</span><h3>FCTC BIDC — 63 milliards FCFA</h3><p>Film de présentation d'un fonds commun de titrisation : images, motion design, chiffres animés et voix off.</p></div>
+        </article>
+        <article class="clip">
+          <video controls preload="none" playsinline poster="img/poster-icf-innovation.jpg"><source src="videos/icf-innovation.mp4" type="video/mp4"></video>
+          <div class="cap"><span class="tag">Motion design · 1 min 04</span><h3>Innovation financière</h3><p>La technologie au service des services financiers : interfaces animées et voix off.</p></div>
+        </article>
+        <article class="clip">
+          <video controls preload="none" playsinline poster="img/poster-icf-decrypte-ep01.jpg"><source src="videos/icf-decrypte-ep01.mp4" type="video/mp4"></video>
+          <div class="cap"><span class="tag">ICF Décrypte · épisode 01 · 1 min 22</span><h3>Action ou obligation ?</h3><p>Série d'éducation financière : les notions expliquées en motion design.</p></div>
+        </article>
+        <article class="clip">
+          <video controls preload="none" playsinline poster="img/poster-icf-decrypte-ep02.jpg"><source src="videos/icf-decrypte-ep02.mp4" type="video/mp4"></video>
+          <div class="cap"><span class="tag">ICF Décrypte · épisode 02 · 52 s</span><h3>Les 5 réflexes avant d'investir en Bourse</h3><p>Identité de série, typographie animée et pictogrammes.</p></div>
+        </article>
+      </div>
+      <div class="av">
+        <article>
+          <span class="tag">Montage vidéo</span>
+          <h3>Raconter par le rythme</h3>
+          <p>Découpage des séquences, assemblage des plans, transitions, intégration du son et optimisation visuelle pour un rendu fluide et cohérent.</p>
+          <div class="nle" aria-hidden="true">
+            <div class="ruler"><span>00:00</span><span>00:05</span><span>00:10</span><span>00:15</span><span>00:20</span></div>
+            <div class="lane"><i style="flex:2;background:#e0b04f"></i><i style="flex:3;background:#f07a2e"></i><i style="flex:1.5;background:#7f9a86"></i><i style="flex:2.5;background:#e0b04f"></i></div>
+            <div class="lane"><i style="flex:1;background:transparent"></i><i style="flex:4;background:#8c9bb3"></i><i style="flex:3;background:#b98ab0"></i></div>
+            <div class="lane"><i style="flex:9;background:repeating-linear-gradient(90deg,#3f6b55 0 3px,#2d4e3e 3px 6px)"></i></div>
+            <span class="head"></span>
+          </div>
+        </article>
+        <article>
+          <span class="tag">Motion design</span>
+          <h3>Donner vie au graphisme</h3>
+          <p>Animation typographique, formes graphiques, images et son : un message transmis de façon dynamique, avec une attention au rythme, à la fluidité et à l'harmonie.</p>
+          <div class="curve" aria-hidden="true">
+            <svg viewBox="0 0 300 90"><path d="M10 80 C 110 80, 110 10, 290 10" fill="none" stroke="#4a4741" stroke-width="2" stroke-dasharray="4 5"/><text x="10" y="18" fill="#6f6a62" font-family="JetBrains Mono, monospace" font-size="10">ease-in-out · overshoot</text><circle class="dotm" cx="22" cy="55" r="12" fill="#e0b04f"/></svg>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="parcours">
+    <div class="wrap">
+      <div class="cue"><b>00:00:53</b> Parcours</div>
+      <h2>Expériences <em>professionnelles</em></h2>
+      <div class="cv">
+        <ol class="tl">
+          <li class="now">
+            <span class="when">Depuis le 18 août 2026</span>
+            <h3>Invictus Capital &amp; Finance</h3>
+            <p class="where">15 Avenue Place 71, Dakar</p>
+            <p class="job">Référent digital</p>
+            <p>Gestion de la communication digitale, création de contenus visuels et conception de supports de communication. Planification des publications et développement de la visibilité de l'entreprise sur les réseaux sociaux. Supports de communication et de marketing de l'APE SN02 2026 de l'État du Sénégal.</p>
+          </li>
+          <li>
+            <span class="when">Février – mars 2025 · Octobre – novembre 2025</span>
+            <h3>Télé Dialibatou Internationale (TDi)</h3>
+            <p class="where">Dakar, rond-point JVC · stages pratiques</p>
+            <p class="job">Graphiste &amp; motion designer</p>
+            <p>Création de visuels et d'affiches promotionnelles pour les émissions télévisées, montage vidéo, habillage graphique et animations en motion design avec Photoshop, Premiere Pro et After Effects.</p>
+          </li>
+        </ol>
+        <div class="cvcard">
+          <img src="img/cv-babacar-dieng.jpg" alt="Aperçu du CV de Babacar Dieng" loading="lazy">
+          <div><small>Curriculum vitæ</small><b>Formation, logiciels, langues</b><a class="btn solid" href="#cv">Voir mon CV</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band ink" id="ia">
+    <div class="wrap">
+      <div class="cue"><b>00:01:04</b> Création augmentée</div>
+      <h2>Intelligence artificielle <em>&amp; créativité</em></h2>
+      <div class="ia">
+        <div>
+          <p class="lead">Les outils d'IA générative font partie de mon processus : explorer des concepts, développer des pistes visuelles, écrire des prompts et enrichir un workflow créatif, en gardant le contrôle sur la direction artistique.</p>
+          <div class="cert">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="24" cy="20" r="12"/><path d="M17 30 L14 44 L24 38 L34 44 L31 30"/><path d="M19 20 L23 24 L30 16"/></svg>
+            <div><small>Certification obtenue</small><b>Intelligence artificielle pour tous</b></div>
+          </div>
+        </div>
+        <ol>
+          <li><span>01</span>Exploration de concepts et de directions artistiques</li>
+          <li><span>02</span>Rédaction et amélioration de prompts créatifs</li>
+          <li><span>03</span>Appui à la création de contenus visuels et audiovisuels</li>
+          <li><span>04</span>Intégration dans un workflow de production créative</li>
+          <li>L'IA comme levier créatif, pas comme substitut au regard et aux choix du designer.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="band ink contact" id="contact" style="border-top:1px solid var(--ink-3)">
+    <div class="wrap">
+      <div>
+        <div class="cue"><b>00:01:12</b> Collaborons ensemble</div>
+        <h2>Votre histoire <em>en images.</em></h2>
+        <p class="sub">Disponible pour des opportunités professionnelles, des collaborations créatives et des projets de communication visuelle, vidéo ou motion design.</p>
+        <div class="lines">
+          <div class="line"><div><small>Téléphone</small><b><a id="tel" href="tel:+221771233038">+221 77 123 30 38</a></b></div><button type="button" data-copy="tel">Copier</button></div>
+          <div class="line"><div><small>E-mail</small><b><a id="mail" href="mailto:khalifa.bdieng@gmail.com">khalifa.bdieng@gmail.com</a></b></div><button type="button" data-copy="mail">Copier</button></div>
+          <div class="line"><div><small>Localisation</small><b>Dakar, Sénégal</b></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="cvview" id="cv-view" hidden aria-label="Curriculum vitæ">
+  <div class="cvbar"><div class="wrap"><a class="back" href="#top">← Retour au portfolio</a><span>Curriculum vitæ · Babacar Dieng</span></div></div>
+  <div class="wrap cvbody">
+    <figure class="sheet"><img src="img/cv-babacar-dieng.jpg" alt="CV de Babacar Dieng : contact, formation, logiciels, langues, centres d'intérêt, objectif, expériences et compétences clés"></figure>
+    <aside class="side">
+      <div class="panel goalp"><h3>Objectif professionnel</h3><p>Développer mes compétences en conception graphique, montage vidéo et motion design tout en contribuant à la réussite des projets de communication visuelle et digitale d'une entreprise.</p></div>
+      <div class="panel"><h3>Formation</h3><div class="edu">
+        <div><b>2023–2025</b><span>Technicien supérieur en art graphique et numérique<em>ISEP de Thiès</em></span></div>
+        <div><b>2022–2023</b><span>Baccalauréat L2<em>Lycée de Thilmakha</em></span></div>
+      </div></div>
+      <div class="panel"><h3>Logiciels <small>10</small></h3><div class="apps"><span>Photoshop</span><span>Illustrator</span><span>Lightroom</span><span>Premiere Pro</span><span>After Effects</span><span>Audition</span><span>InDesign</span><span>Animate</span><span>Final Cut Pro</span><span>Canva</span></div></div>
+      <div class="panel"><h3>Langues</h3><div class="langs">
+        <div class="lang"><span>Français</span><div class="meter"><i style="width:95%"></i></div><small>Maîtrisé</small></div>
+        <div class="lang"><span>Wolof</span><div class="meter"><i style="width:90%"></i></div><small>Bien maîtrisé</small></div>
+        <div class="lang"><span>Anglais</span><div class="meter"><i style="width:40%"></i></div><small>Niveau scolaire</small></div>
+      </div></div>
+      <div class="panel"><h3>Centres d'intérêt</h3><div class="likes"><span>Football</span><span>Actualité sportive</span></div></div>
+    </aside>
+  </div>
+</section>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Visionneuse de photos">
+  <span class="count" id="lb-count"></span>
+  <button type="button" class="x" id="lb-close" aria-label="Fermer">✕</button>
+  <button type="button" id="lb-prev" aria-label="Photo précédente">‹</button>
+  <img id="lb-img" alt="">
+  <p class="lb-cap" id="lb-cap"></p>
+  <button type="button" id="lb-next" aria-label="Photo suivante">›</button>
+</div>
+<footer><div class="wrap"><span>Babacar Dieng · Designer graphique &amp; motion designer</span><span>Portfolio 2026 · Sénégal</span></div></footer>
+
+<script>
+document.querySelectorAll("[data-copy]").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const el = document.getElementById(btn.dataset.copy);
+    const reset = (t) => { btn.textContent = t; setTimeout(() => (btn.textContent = "Copier"), 1600); };
+    const select = () => { const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); reset("Sélectionné"); };
+    try { navigator.clipboard.writeText(el.textContent.trim()).then(() => reset("Copié"), select); } catch (e) { select(); }
+  });
+});
+
+const cvView = document.getElementById("cv-view");
+const route = () => {
+  const open = location.hash === "#cv";
+  cvView.hidden = !open;
+  document.body.classList.toggle("cv-open", open);
+  if (open) window.scrollTo(0, 0);
+};
+addEventListener("hashchange", route);
+route();
+
+const lb = document.getElementById("lb"), lbImg = document.getElementById("lb-img"), lbCount = document.getElementById("lb-count"), lbCap = document.getElementById("lb-cap");
+let shots = [], cur = 0, opener = null;
+const show = (i) => { cur = (i + shots.length) % shots.length; const im = shots[cur].querySelector("img"); lbImg.src = im.src; lbImg.alt = im.alt; const fc = shots[cur].closest("figure")?.querySelector("figcaption"); lbCap.textContent = fc ? fc.textContent : ""; lbCount.textContent = `${String(cur + 1).padStart(2, "0")} / ${String(shots.length).padStart(2, "0")}`; lbImg.style.animation = "none"; void lbImg.offsetWidth; lbImg.style.animation = ""; };
+const openLb = (btn) => { shots = [...btn.closest(".pgrid, .album-grid").querySelectorAll(".shot")]; opener = btn; show(shots.indexOf(btn)); lb.hidden = false; document.body.style.overflow = "hidden"; document.getElementById("lb-close").focus(); };
+const closeLb = () => { lb.hidden = true; document.body.style.overflow = ""; opener && opener.focus(); };
+document.querySelectorAll(".shot").forEach((b) => b.addEventListener("click", () => openLb(b)));
+document.getElementById("lb-prev").addEventListener("click", () => show(cur - 1));
+document.getElementById("lb-next").addEventListener("click", () => show(cur + 1));
+document.getElementById("lb-close").addEventListener("click", closeLb);
+lb.addEventListener("click", (e) => { if (e.target === lb) closeLb(); });
+addEventListener("keydown", (e) => { if (lb.hidden) return; if (e.key === "Escape") closeLb(); if (e.key === "ArrowLeft") show(cur - 1); if (e.key === "ArrowRight") show(cur + 1); });
+let tx = null;
+lb.addEventListener("touchstart", (e) => { tx = e.touches[0].clientX; }, { passive: true });
+lb.addEventListener("touchend", (e) => { if (tx === null) return; const dx = e.changedTouches[0].clientX - tx; if (Math.abs(dx) > 40) show(cur + (dx < 0 ? 1 : -1)); tx = null; });
+/* ---------- le nom tient toujours en entier dans la largeur ---------- */
+(() => {
+  const h = document.querySelector(".name"), first = h && h.querySelector(".row > span");
+  if (!h || !first) return;
+  const fit = () => {
+    h.style.fontSize = "";
+    const avail = h.clientWidth, w = first.scrollWidth;
+    if (w > 0) {
+      const cur = parseFloat(getComputedStyle(h).fontSize);
+      h.style.fontSize = Math.min(cur * (avail / w) * 0.995, 200) + "px";
+    }
+  };
+  fit();
+  if (document.fonts) document.fonts.ready.then(fit);
+  addEventListener("resize", fit);
+})();
+
+/* ---------- motion ---------- */
+(() => {
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const bar = document.querySelector(".bar"), prog = document.querySelector(".progress");
+  const rows = document.querySelectorAll(".name .row > span"), heroImg = document.querySelector(".hero .frame .img");
+  const rec = document.getElementById("rec");
+  // compteur REC en direct (25 i/s)
+  const t0 = performance.now();
+  const pad = (n) => String(n).padStart(2, "0");
+  const tick = (t) => {
+    const f = Math.floor((t - t0) / 40), s = Math.floor(f / 25);
+    rec.textContent = `${pad(Math.floor(s / 3600))}:${pad(Math.floor(s / 60) % 60)}:${pad(s % 60)}:${pad(f % 25)}`;
+    if (!reduce) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+  if (reduce || !("IntersectionObserver" in window)) return;
+  document.documentElement.classList.add("m-on");
+
+  // titres : découpe en mots, révélation masquée
+  document.querySelectorAll("main h2, .cvview h2").forEach((h) => {
+    let wi = 0;
+    const walk = (node) => {
+      [...node.childNodes].forEach((n) => {
+        if (n.nodeType === 3) {
+          const frag = document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach((part) => {
+            if (!part) return;
+            if (/^\s+$/.test(part)) { frag.append(" "); return; }
+            const w = document.createElement("span"); w.className = "w";
+            const i = document.createElement("i"); i.textContent = part; i.style.setProperty("--wi", wi++);
+            w.append(i); frag.append(w);
+          });
+          n.replaceWith(frag);
+        } else if (n.nodeType === 1) walk(n);
+      });
+    };
+    walk(h); h.classList.add("split");
+  });
+
+  // éléments révélés au défilement, avec décalage entre voisins
+  const groups = [".cue", "main .sub", ".proj-intro p", ".about .txt > *", ".skill", ".feature .body > *", ".brand", ".mosaic .note", ".dk-note", ".ky-side > div", ".phead", ".photo .body > *", ".album figcaption", ".clip", ".av article", ".tl li", ".cvcard", ".ia .lead", ".ia .cert", ".ia ol li", ".line", ".hero-grid > div:first-child > *"];
+  groups.forEach((sel) => document.querySelectorAll(sel).forEach((el) => {
+    const sibs = [...el.parentElement.children].filter((c) => c.matches(sel));
+    el.classList.add("rv"); el.style.setProperty("--d", `${Math.min(sibs.indexOf(el), 6) * 0.08}s`);
+  }));
+  const wipes = [".feature figure", ".brand figure", ".mosaic > figure", ".ky-bag", ".ky-vars", ".dk figure", ".photo figure", ".pgrid .shot", ".album .shot"];
+  wipes.forEach((sel) => document.querySelectorAll(sel).forEach((el) => {
+    const sibs = [...el.parentElement.children].filter((c) => c.matches(sel));
+    el.classList.add("wipe"); el.style.setProperty("--d", `${Math.min(sibs.indexOf(el), 5) * 0.07}s`);
+  }));
+
+  // timecodes : défilement jusqu'à leur valeur
+  const runCue = (b) => {
+    const [mm, ss] = b.dataset.tc.split(":").slice(1).map(Number), total = mm * 60 + ss, start = performance.now();
+    const step = (t) => {
+      const k = Math.min(1, (t - start) / 1100), e = 1 - Math.pow(1 - k, 3), v = Math.round(total * e);
+      b.textContent = `00:${pad(Math.floor(v / 60))}:${pad(v % 60)}`;
+      if (k < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  document.querySelectorAll(".cue b").forEach((b) => { b.dataset.tc = b.textContent; b.textContent = "00:00:00"; });
+
+  const io = new IntersectionObserver((entries) => entries.forEach((en) => {
+    if (!en.isIntersecting) return;
+    en.target.classList.add("in"); io.unobserve(en.target);
+    const b = en.target.matches(".cue") && en.target.querySelector("b[data-tc]");
+    if (b) runCue(b);
+  }), { rootMargin: "0px 0px -8% 0px", threshold: 0.12 });
+  document.querySelectorAll(".rv, .wipe, .split").forEach((el) => io.observe(el));
+
+  // projecteur des compétences
+  document.querySelectorAll(".skill").forEach((el) => el.addEventListener("pointermove", (e) => {
+    const r = el.getBoundingClientRect();
+    el.style.setProperty("--mx", `${e.clientX - r.left}px`); el.style.setProperty("--my", `${e.clientY - r.top}px`);
+  }));
+
+  // boutons magnétiques (souris uniquement)
+  if (matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    document.querySelectorAll(".mag").forEach((el) => {
+      el.addEventListener("pointermove", (e) => {
+        const r = el.getBoundingClientRect();
+        el.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * 0.25}px, ${(e.clientY - r.top - r.height / 2) * 0.35}px)`;
+      });
+      el.addEventListener("pointerleave", () => { el.style.transform = ""; });
+    });
+  }
+
+  // barre de lecture + parallaxe de l'ouverture
+  let ticking = false;
+  const onScroll = () => {
+    ticking = false;
+    const y = scrollY, max = document.documentElement.scrollHeight - innerHeight;
+    prog.style.setProperty("--p", max > 0 ? (y / max).toFixed(4) : 0);
+    if (y < innerHeight * 1.4) {
+      if (rows[0]) rows[0].style.translate = `${-y * 0.18}px 0`;
+      if (rows[1]) rows[1].style.translate = `${y * 0.12}px 0`;
+      if (heroImg) heroImg.style.translate = `0 ${y * -0.06}px`;
+    }
+  };
+  addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  onScroll();
+})();
+</script>
+</body>
+</html>
