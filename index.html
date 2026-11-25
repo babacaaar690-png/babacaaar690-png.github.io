@@ -171,9 +171,12 @@ h2 { hyphens: manual; overflow-wrap: normal; }
 .kv dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
 @media (max-width: 860px) { .feature { grid-template-columns: 1fr; } }
 
-.brands { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 22px; }
+.brands { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; margin-top: 22px; }
 .brand { background: #fff; border-radius: 14px; overflow: hidden; transition: transform .4s cubic-bezier(.2,.9,.2,1), box-shadow .4s; }
 .brand:hover { transform: translateY(-8px) rotate(-.6deg); box-shadow: 0 24px 50px rgba(30,20,5,.16); }
+.brands .brand { display: grid; grid-template-columns: minmax(0, 220px) 1fr; align-items: center; }
+.brands .brand .m { border-top: 0; border-left: 1px solid var(--paper-2); padding: 22px 26px; }
+.brands .brand h3 { font-size: 24px; }
 .brand figure { margin: 0; aspect-ratio: 5/4; overflow: hidden; display: grid; place-items: center; }
 .brand img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s; }
 .brand:hover img { transform: scale(1.06); }
@@ -202,6 +205,12 @@ h2 { hyphens: manual; overflow-wrap: normal; }
 @media (max-width: 560px) { .mosaic { grid-template-columns: 1fr; } }
 
 .bb { margin-top: 22px; border-radius: 18px; overflow: hidden; padding: clamp(18px, 2.6vw, 32px); display: grid; gap: clamp(18px, 2.4vw, 28px); }
+.bb-ov { background: #10245e; color: #eaf2ff; --bb-muted: #a9bde6; --bb-tag: #57c3f2; }
+.bb-ov .bb-logo { background: #fff; }
+.bb-ov .bb-logo img { padding: 8% 10%; }
+.bb-sup.bb-sup-one { grid-template-columns: 1fr; }
+.bb-sup.bb-sup-one figure > img { aspect-ratio: auto; width: auto; max-width: 100%; height: auto; max-height: 620px; margin-inline: auto; object-fit: contain; }
+.bb-sup.bb-sup-one figcaption { text-align: center; }
 .bb-dk { background: #0f2233; color: #e8f3fa; --bb-muted: #a9c6d8; --bb-tag: #6cc7ea; }
 .bb-ya { background: #0d0b0b; color: #f3ece6; --bb-muted: #b8aaa4; --bb-tag: #e9a3b4; }
 .bb-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(18px, 3vw, 44px); align-items: center; }
@@ -518,7 +527,6 @@ body.cv-open > :not(#cv-view):not(.bar) { display: none !important; }
 
       <div class="brands">
         <article class="brand"><figure><img src="img/sunu-cereales.jpg" alt="Logo Sunu Céréales"></figure><div class="m"><h3>Sunu Céréales</h3><p>Identité de marque · agroalimentaire</p></div></article>
-        <article class="brand"><figure><img src="img/ovale.jpg" alt="Logo Ovale"></figure><div class="m"><h3>Ovale</h3><p>Identité visuelle · univers de l'eau</p></div></article>
       </div>
 
       <div class="mosaic">
@@ -532,6 +540,21 @@ body.cv-open > :not(#cv-view):not(.bar) { display: none !important; }
           <ul><li>Affiches et supports de communication</li><li>Mockups et présentations de marque</li><li>Logos et cohérence visuelle</li></ul>
         </div>
       </div>
+
+      <article class="bb bb-ov">
+        <div class="bb-top">
+          <figure class="bb-logo"><img src="img/ovale.jpg" alt="Logo Ovale" loading="lazy"></figure>
+          <div class="bb-text">
+            <span class="tag">Identité visuelle · logo</span>
+            <h3>Ovale<small>Univers de l'eau</small></h3>
+            <p>Une goutte et un nom en capitales, puis le logo appliqué sur une gamme de bouteilles de trois formats.</p>
+          </div>
+        </div>
+        <p class="bb-label">Application du logo sur supports</p>
+        <div class="bb-sup bb-sup-one">
+          <figure><img src="img/ovale/ovale-bouteilles.jpg" alt="Logo Ovale appliqué sur trois bouteilles : 10 L, 1 L et 40 cl" loading="lazy"><figcaption>Gamme de bouteilles · 10 L, 1 L, 40 cl</figcaption></figure>
+        </div>
+      </article>
 
       <article class="bb bb-dk">
         <div class="bb-top">
