@@ -225,6 +225,9 @@ h2 { hyphens: manual; overflow-wrap: normal; }
 .bb-ov .bb-logo { background: #fff; }
 .bb-ov .bb-top { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); }
 .ov-anim { background: #fff !important; }
+.snd { position: absolute; right: 10px; top: 10px; z-index: 2; font: 600 11px/1 var(--mono); text-transform: uppercase; letter-spacing: .06em; color: #fff; background: rgba(0,0,0,.6); border: 0; border-radius: 999px; padding: 7px 10px 7px 26px; cursor: pointer; }
+.snd::before { content: ""; position: absolute; left: 9px; top: 50%; width: 10px; height: 10px; transform: translateY(-50%); background: currentColor; clip-path: polygon(0 30%, 35% 30%, 75% 0, 75% 100%, 35% 70%, 0 70%); }
+.snd[aria-pressed="true"] { background: var(--gold); color: var(--ink); }
 @media (max-width: 760px) { .bb-ov .bb-top { grid-template-columns: 1fr; } }
 .bb-ov .bb-logo img { padding: 8% 10%; }
 .bb-sup.bb-sup-one { grid-template-columns: 1fr; }
@@ -579,7 +582,7 @@ body.cv-open > :not(#cv-view):not(.bar) { display: none !important; }
         <div class="bb-top">
           <div class="su-pair">
             <figure class="bb-logo"><img src="img/ovale.jpg" alt="Logo Ovale" loading="lazy"><figcaption>Logo</figcaption></figure>
-            <figure class="bb-logo su-anim ov-anim"><video src="videos/ovale-logo-animation.mp4" poster="img/ovale/ovale-logo-anim-poster.jpg" muted loop playsinline autoplay preload="metadata" aria-label="Animation du logo Ovale"></video><figcaption>Animation du logo</figcaption></figure>
+            <figure class="bb-logo su-anim ov-anim"><video src="videos/ovale-logo-animation.mp4" poster="img/ovale/ovale-logo-anim-poster.jpg" muted loop playsinline autoplay preload="metadata" aria-label="Animation du logo Ovale"></video><figcaption>Animation du logo</figcaption><button type="button" class="snd" aria-pressed="false" aria-label="Activer le son">Son</button></figure>
           </div>
           <div class="bb-text">
             <span class="tag">Identité visuelle · logo</span>
@@ -888,6 +891,16 @@ document.addEventListener("play", (e) => {
   addEventListener("resize", fit);
   addEventListener("hashchange", () => setTimeout(fit, 0));
 })();
+
+/* ---------- bouton son des animations de logo ---------- */
+document.querySelectorAll(".snd").forEach((b) => {
+  const v = b.parentElement.querySelector("video");
+  b.addEventListener("click", () => {
+    const on = v.muted;
+    v.muted = !on; b.setAttribute("aria-pressed", String(on)); b.setAttribute("aria-label", on ? "Couper le son" : "Activer le son");
+    if (on) { v.currentTime = 0; v.play(); }
+  });
+});
 
 /* ---------- le nom tient toujours en entier dans la largeur ---------- */
 (() => {
