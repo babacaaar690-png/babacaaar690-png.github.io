@@ -241,6 +241,9 @@ h2 { hyphens: manual; overflow-wrap: normal; }
 .bb-dk .bb-logo { background: #fff; }
 .bb-dk .bb-logo img { padding: 7%; }
 .bb-ya .bb-logo { background: rgb(3,3,5); }
+.ya-anim { background: #0a0909 !important; }
+.bb-ya .bb-top { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); }
+@media (max-width: 760px) { .bb-ya .bb-top { grid-template-columns: 1fr; } }
 .bb-ya .bb-logo img { padding: 4% 10%; }
 .bb .tag { color: var(--bb-tag); }
 .bb h3 { font-size: clamp(28px, 3.4vw, 44px); line-height: 1.02; margin-top: 10px; }
@@ -615,7 +618,10 @@ body.cv-open > :not(#cv-view):not(.bar) { display: none !important; }
 
       <article class="bb bb-ya">
         <div class="bb-top">
-          <figure class="bb-logo"><img src="img/kyash/yash-logo.jpg" alt="Logo Yash, Yacine Aro Shop" loading="lazy"></figure>
+          <div class="su-pair">
+            <figure class="bb-logo"><img src="img/kyash/yash-logo.jpg" alt="Logo Yash, Yacine Aro Shop" loading="lazy"><figcaption>Logo</figcaption></figure>
+            <figure class="bb-logo su-anim ya-anim"><video src="videos/yash-logo-animation.mp4" poster="img/kyash/yash-logo-anim-poster.jpg" muted loop playsinline autoplay preload="metadata" aria-label="Animation du logo Yash"></video><figcaption>Animation du logo</figcaption></figure>
+          </div>
           <div class="bb-text">
             <span class="tag">Identité de marque · logo</span>
             <h3>Yash<small>Yacine Aro Shop</small></h3>
