@@ -239,6 +239,9 @@ h2 { hyphens: manual; overflow-wrap: normal; }
 .bb-logo { margin: 0; border-radius: 14px; overflow: hidden; aspect-ratio: 16/10; position: relative; }
 .bb-logo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
 .bb-dk .bb-logo { background: #fff; }
+.dk-anim { background: #f4f0ea !important; }
+.bb-dk .bb-top { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); }
+@media (max-width: 760px) { .bb-dk .bb-top { grid-template-columns: 1fr; } }
 .bb-dk .bb-logo img { padding: 7%; }
 .bb-ya .bb-logo { background: rgb(3,3,5); }
 .ya-anim { background: #0a0909 !important; }
@@ -601,7 +604,10 @@ body.cv-open > :not(#cv-view):not(.bar) { display: none !important; }
 
       <article class="bb bb-dk">
         <div class="bb-top">
-          <figure class="bb-logo"><img src="img/darou/darou-logo.png" alt="Logo Darou Khoudoss Ameublement" loading="lazy"></figure>
+          <div class="su-pair">
+            <figure class="bb-logo"><img src="img/darou/darou-logo.png" alt="Logo Darou Khoudoss Ameublement" loading="lazy"><figcaption>Logo</figcaption></figure>
+            <figure class="bb-logo su-anim dk-anim"><video src="videos/darou-logo-animation.mp4" poster="img/darou/darou-logo-anim-poster.jpg" muted loop playsinline autoplay preload="metadata" aria-label="Animation du logo Darou Khoudoss"></video><figcaption>Animation du logo</figcaption><button type="button" class="snd" aria-pressed="false" aria-label="Activer le son">Son</button></figure>
+          </div>
           <div class="bb-text">
             <span class="tag">Identité visuelle · logo</span>
             <h3>Darou Khoudoss<small>Ameublement</small></h3>
