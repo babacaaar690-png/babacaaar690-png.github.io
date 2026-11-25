@@ -171,7 +171,7 @@ h2 { hyphens: manual; overflow-wrap: normal; }
 .kv dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
 @media (max-width: 860px) { .feature { grid-template-columns: 1fr; } }
 
-.brands { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 22px; }
+.brands { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 22px; }
 .brand { background: #fff; border-radius: 14px; overflow: hidden; transition: transform .4s cubic-bezier(.2,.9,.2,1), box-shadow .4s; }
 .brand:hover { transform: translateY(-8px) rotate(-.6deg); box-shadow: 0 24px 50px rgba(30,20,5,.16); }
 .brand figure { margin: 0; aspect-ratio: 5/4; overflow: hidden; display: grid; place-items: center; }
@@ -198,31 +198,38 @@ h2 { hyphens: manual; overflow-wrap: normal; }
 .mosaic .swatches .sw-grid img { width: 100%; height: auto; border-radius: 6px; transition: transform .5s cubic-bezier(.2,.9,.2,1); }
 .swatches .sw-grid img:hover { transform: translateY(-3px) scale(1.03); }
 .swatches figcaption { font: 500 12px/1 var(--mono); color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
-.m-on .ky-vars.wipe .sw-grid img { transition-delay: var(--d, 0s); }
+.m-on .bb-vars.wipe .sw-grid img { transition-delay: var(--d, 0s); }
 @media (max-width: 760px) { .mosaic { grid-template-columns: 1fr; } }
 @media (max-width: 560px) { .mosaic { grid-template-columns: 1fr; } }
 
-.ky { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.6fr); gap: 0; margin-top: 22px; background: #0d0b0b; color: #f3ece6; border-radius: 18px; overflow: hidden; }
-.ky-side { padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; justify-content: space-between; gap: 24px; }
-.ky .tag { color: #e9a3b4; }
-.ky h3 { font-size: clamp(28px, 3vw, 38px); line-height: 1.05; margin-top: 10px; }
-.ky h3 small { display: block; font: 500 .45em/1.4 var(--mono); color: #b8aaa4; text-transform: uppercase; letter-spacing: .08em; margin-top: 8px; }
-.ky p { color: #b8aaa4; margin-top: 12px; font-size: 15px; }
-.ky-bag { margin: 0; border-radius: 12px; overflow: hidden; max-width: 320px; }
-.ky-bag img { width: 100%; }
-.ky-vars { margin: 0; padding: clamp(14px, 2vw, 22px); background: #171313; display: grid; align-content: center; }
-.ky-vars .sw-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-.ky-vars .sw-grid img { width: 100%; height: auto; border-radius: 8px; transition: transform .5s cubic-bezier(.2,.9,.2,1); }
-.ky-vars .sw-grid img:hover { transform: translateY(-4px) scale(1.03); }
-@media (max-width: 860px) { .ky { grid-template-columns: 1fr; } .ky-side { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); align-items: end; } }
-@media (max-width: 520px) { .ky-side { grid-template-columns: 1fr; } }
-.dk { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1fr) minmax(0, 1fr); gap: 18px; margin-top: 22px; }
-.dk-note { background: #0f2233; color: #e8f3fa; border-radius: 14px; padding: 28px; display: flex; flex-direction: column; justify-content: flex-end; gap: 12px; }
-.dk-note h3 { font-size: 28px; line-height: 1.05; }
-.dk-note p { color: #a9c6d8; }
-.dk figure { margin: 0; border-radius: 14px; overflow: hidden; background: #d9d9d9; }
-.dk figure img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.2,.9,.2,1); }
-@media (max-width: 1000px) { .dk { grid-template-columns: 1fr 1fr; } .dk-note { grid-column: 1 / -1; justify-content: flex-start; } }
+.bb { margin-top: 22px; border-radius: 18px; overflow: hidden; padding: clamp(18px, 2.6vw, 32px); display: grid; gap: clamp(18px, 2.4vw, 28px); }
+.bb-dk { background: #0f2233; color: #e8f3fa; --bb-muted: #a9c6d8; --bb-tag: #6cc7ea; }
+.bb-ya { background: #0d0b0b; color: #f3ece6; --bb-muted: #b8aaa4; --bb-tag: #e9a3b4; }
+.bb-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(18px, 3vw, 44px); align-items: center; }
+.bb-logo { margin: 0; border-radius: 14px; overflow: hidden; aspect-ratio: 16/10; position: relative; }
+.bb-logo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.bb-dk .bb-logo { background: #fff; }
+.bb-dk .bb-logo img { padding: 7%; }
+.bb-ya .bb-logo { background: rgb(3,3,5); }
+.bb-ya .bb-logo img { padding: 4% 10%; }
+.bb .tag { color: var(--bb-tag); }
+.bb h3 { font-size: clamp(28px, 3.4vw, 44px); line-height: 1.02; margin-top: 10px; }
+.bb h3 small { display: block; font: 500 .4em/1.4 var(--mono); color: var(--bb-muted); text-transform: uppercase; letter-spacing: .08em; margin-top: 10px; }
+.bb-text p { color: var(--bb-muted); margin-top: 14px; max-width: 46ch; }
+.bb-label { font: 500 12px/1 var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--bb-muted); display: flex; align-items: center; gap: 12px; }
+.bb-sup { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.bb-sup figure { margin: 0; display: grid; gap: 10px; align-content: start; }
+.bb-sup figure > img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 12px; background: #d9d9d9; transition: transform .7s cubic-bezier(.2,.9,.2,1); }
+.bb-sup figcaption { font: 500 12px/1 var(--mono); color: var(--bb-muted); text-transform: uppercase; letter-spacing: .06em; }
+.bb-sup-ya { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.bb-sup-ya .bb-bag { grid-column: span 2; grid-row: span 2; position: relative; }
+.bb-sup-ya .bb-bag > img { position: absolute; inset: 0; aspect-ratio: auto; height: 100%; object-fit: cover; }
+.bb-sup-ya .bb-bag figcaption { position: absolute; left: 12px; bottom: 12px; background: rgba(0,0,0,.55); color: #f3ece6; padding: 6px 8px; border-radius: 4px; }
+.bb-sup .bb-vars, .bb-sup .bb-vars .sw-grid { display: contents; }
+.bb-vars > figcaption { grid-column: 1 / -1; }
+.bb-vars .sw-grid img { width: 100%; height: auto; align-self: start; border-radius: 8px; transition: transform .5s cubic-bezier(.2,.9,.2,1); }
+.bb-vars .sw-grid img:hover { transform: translateY(-3px) scale(1.03); }
+@media (max-width: 760px) { .bb-top { grid-template-columns: 1fr; } .bb-sup { gap: 8px; } .bb-sup-ya { grid-template-columns: repeat(2, minmax(0, 1fr)); } .bb-sup-ya .bb-bag { grid-row: auto; } .bb-sup-ya .bb-bag > img { position: static; aspect-ratio: 16/10; } }
 .photo { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); margin-top: 22px; align-items: center; background: var(--ink); color: var(--on-ink); border-radius: 18px; overflow: hidden; }
 .photo figure { margin: 0; height: 100%; }
 .photo figure img { width: 100%; height: 100%; object-fit: cover; }
@@ -518,7 +525,6 @@ body.cv-open > :not(#cv-view):not(.bar) { display: none !important; }
       <div class="brands">
         <article class="brand"><figure><img src="img/sunu-cereales.jpg" alt="Logo Sunu Céréales"></figure><div class="m"><h3>Sunu Céréales</h3><p>Identité de marque · agroalimentaire</p></div></article>
         <article class="brand"><figure><img src="img/ovale.jpg" alt="Logo Ovale"></figure><div class="m"><h3>Ovale</h3><p>Identité visuelle · univers de l'eau</p></div></article>
-        <article class="brand"><figure><img src="img/darou-khoudoss.jpg" alt="Sac blanc avec le logo Darou Khoudoss Ameublement"></figure><div class="m"><h3>Darou Khoudoss</h3><p>Mockup et présentation visuelle</p></div></article>
       </div>
 
       <div class="mosaic">
@@ -533,26 +539,37 @@ body.cv-open > :not(#cv-view):not(.bar) { display: none !important; }
         </div>
       </div>
 
-      <div class="dk">
-        <div class="dk-note">
-          <span class="tag" style="color:var(--orange)">Identité visuelle · déclinaisons</span>
-          <h3>Darou Khoudoss Ameublement</h3>
-          <p>Application du logo sur différents supports pour vérifier sa lisibilité et sa cohérence : coque de téléphone et t-shirt.</p>
-        </div>
-        <figure><img src="img/darou/darou-coque.jpg" alt="Logo Darou Khoudoss Ameublement sur une coque de téléphone" loading="lazy"></figure>
-        <figure><img src="img/darou/darou-tshirt.jpg" alt="Logo Darou Khoudoss Ameublement sur un t-shirt blanc" loading="lazy"></figure>
-      </div>
-
-      <article class="ky">
-        <div class="ky-side">
-          <div>
-            <span class="tag">Identité de marque · déclinaisons</span>
-            <h3>Kyash<small>Yacine Aro Shop</small></h3>
-            <p>Le logo appliqué sur support et décliné en 8 combinaisons de couleurs, pour s'adapter à chaque usage tout en gardant la même identité.</p>
+      <article class="bb bb-dk">
+        <div class="bb-top">
+          <figure class="bb-logo"><img src="img/darou/darou-logo.png" alt="Logo Darou Khoudoss Ameublement" loading="lazy"></figure>
+          <div class="bb-text">
+            <span class="tag">Identité visuelle · logo</span>
+            <h3>Darou Khoudoss<small>Ameublement</small></h3>
+            <p>Un logo en badge circulaire autour d'un fauteuil, lisible en petit comme en grand, puis appliqué sur différents supports.</p>
           </div>
-          <figure class="ky-bag"><img src="img/kyash-mockup.jpg" alt="Sac noir avec le logo Kyash" loading="lazy"></figure>
         </div>
-        <figure class="ky-vars"><div class="sw-grid"><img src="img/kyash/kyash-variante-1.jpg" alt="Logo Kyash, Yacine Aro Shop, sur fond rouge" loading="lazy" style="--d:0.00s"><img src="img/kyash/kyash-variante-2.jpg" alt="Logo Kyash, Yacine Aro Shop, sur fond corail" loading="lazy" style="--d:0.06s"><img src="img/kyash/kyash-variante-3.jpg" alt="Logo Kyash, Yacine Aro Shop, sur fond violet" loading="lazy" style="--d:0.12s"><img src="img/kyash/kyash-variante-4.jpg" alt="Logo Kyash, Yacine Aro Shop, sur fond pêche" loading="lazy" style="--d:0.18s"><img src="img/kyash/kyash-variante-5.jpg" alt="Logo Kyash, Yacine Aro Shop, sur fond ocre" loading="lazy" style="--d:0.24s"><img src="img/kyash/kyash-variante-6.jpg" alt="Logo Kyash, Yacine Aro Shop, sur fond bordeaux" loading="lazy" style="--d:0.30s"><img src="img/kyash/kyash-variante-7.jpg" alt="Logo Kyash, Yacine Aro Shop, sur fond noir, logo crème" loading="lazy" style="--d:0.36s"><img src="img/kyash/kyash-variante-8.jpg" alt="Logo Kyash, Yacine Aro Shop, sur fond noir, logo bronze" loading="lazy" style="--d:0.42s"></div></figure>
+        <p class="bb-label">Application du logo sur supports</p>
+        <div class="bb-sup">
+          <figure><img src="img/darou-khoudoss.jpg" alt="Logo Darou Khoudoss Ameublement sur un sac" loading="lazy"><figcaption>Sac</figcaption></figure>
+          <figure><img src="img/darou/darou-coque.jpg" alt="Logo Darou Khoudoss Ameublement sur une coque de téléphone" loading="lazy"><figcaption>Coque de téléphone</figcaption></figure>
+          <figure><img src="img/darou/darou-tshirt.jpg" alt="Logo Darou Khoudoss Ameublement sur un t-shirt blanc" loading="lazy"><figcaption>T-shirt</figcaption></figure>
+        </div>
+      </article>
+
+      <article class="bb bb-ya">
+        <div class="bb-top">
+          <figure class="bb-logo"><img src="img/kyash/yash-logo.jpg" alt="Logo Yash, Yacine Aro Shop" loading="lazy"></figure>
+          <div class="bb-text">
+            <span class="tag">Identité de marque · logo</span>
+            <h3>Yash<small>Yacine Aro Shop</small></h3>
+            <p>Le logo, puis son application sur support et ses 8 déclinaisons couleur, pour s'adapter à chaque usage tout en gardant la même identité.</p>
+          </div>
+        </div>
+        <p class="bb-label">Application du logo sur supports</p>
+        <div class="bb-sup bb-sup-ya">
+          <figure class="bb-bag"><img src="img/kyash-mockup.jpg" alt="Logo Yash sur un sac noir" loading="lazy"><figcaption>Sac</figcaption></figure>
+          <figure class="bb-vars"><div class="sw-grid"><img src="img/kyash/kyash-variante-1.jpg" alt="Logo Yash, Yacine Aro Shop, sur fond rouge" loading="lazy" style="--d:0.00s"><img src="img/kyash/kyash-variante-2.jpg" alt="Logo Yash, Yacine Aro Shop, sur fond corail" loading="lazy" style="--d:0.06s"><img src="img/kyash/kyash-variante-3.jpg" alt="Logo Yash, Yacine Aro Shop, sur fond violet" loading="lazy" style="--d:0.12s"><img src="img/kyash/kyash-variante-4.jpg" alt="Logo Yash, Yacine Aro Shop, sur fond pêche" loading="lazy" style="--d:0.18s"><img src="img/kyash/kyash-variante-5.jpg" alt="Logo Yash, Yacine Aro Shop, sur fond ocre" loading="lazy" style="--d:0.24s"><img src="img/kyash/kyash-variante-6.jpg" alt="Logo Yash, Yacine Aro Shop, sur fond bordeaux" loading="lazy" style="--d:0.30s"><img src="img/kyash/kyash-variante-7.jpg" alt="Logo Yash, Yacine Aro Shop, sur fond noir, logo crème" loading="lazy" style="--d:0.36s"><img src="img/kyash/kyash-variante-8.jpg" alt="Logo Yash, Yacine Aro Shop, sur fond noir, logo bronze" loading="lazy" style="--d:0.42s"></div><figcaption>8 déclinaisons couleur</figcaption></figure>
+        </div>
       </article>
 
       <article class="portraits">
@@ -871,12 +888,12 @@ document.addEventListener("play", (e) => {
   });
 
   // éléments révélés au défilement, avec décalage entre voisins
-  const groups = [".cue", "main .sub", ".proj-intro p", ".about .txt > *", ".skill", ".feature .body > *", ".brand", ".mosaic .note", ".dk-note", ".ky-side > div", ".phead", ".photo .body > *", ".album figcaption", ".clip", ".av article", ".tl li", ".cvcard", ".ia .lead", ".ia .cert", ".ia ol li", ".line", ".hero-grid > div:first-child > *"];
+  const groups = [".cue", "main .sub", ".proj-intro p", ".about .txt > *", ".skill", ".feature .body > *", ".brand", ".mosaic .note", ".bb-text", ".bb-label", ".bb-vars .sw-grid img", ".phead", ".photo .body > *", ".album figcaption", ".clip", ".av article", ".tl li", ".cvcard", ".ia .lead", ".ia .cert", ".ia ol li", ".line", ".hero-grid > div:first-child > *"];
   groups.forEach((sel) => document.querySelectorAll(sel).forEach((el) => {
     const sibs = [...el.parentElement.children].filter((c) => c.matches(sel));
     el.classList.add("rv"); el.style.setProperty("--d", `${Math.min(sibs.indexOf(el), 6) * 0.08}s`);
   }));
-  const wipes = [".feature figure", ".brand figure", ".mosaic > figure", ".ky-bag", ".ky-vars", ".dk figure", ".photo figure", ".pgrid .shot", ".album .shot"];
+  const wipes = [".feature figure", ".brand figure", ".mosaic > figure", ".bb-logo", ".bb-sup figure:not(.bb-vars)", ".photo figure", ".pgrid .shot", ".album .shot"];
   wipes.forEach((sel) => document.querySelectorAll(sel).forEach((el) => {
     const sibs = [...el.parentElement.children].filter((c) => c.matches(sel));
     el.classList.add("wipe"); el.style.setProperty("--d", `${Math.min(sibs.indexOf(el), 5) * 0.07}s`);
