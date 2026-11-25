@@ -198,7 +198,6 @@ h2 { hyphens: manual; overflow-wrap: normal; }
 .mosaic .swatches .sw-grid img { width: 100%; height: auto; border-radius: 6px; transition: transform .5s cubic-bezier(.2,.9,.2,1); }
 .swatches .sw-grid img:hover { transform: translateY(-3px) scale(1.03); }
 .swatches figcaption { font: 500 12px/1 var(--mono); color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
-.m-on .bb-vars.wipe .sw-grid img { transition-delay: var(--d, 0s); }
 @media (max-width: 760px) { .mosaic { grid-template-columns: 1fr; } }
 @media (max-width: 560px) { .mosaic { grid-template-columns: 1fr; } }
 
@@ -221,15 +220,10 @@ h2 { hyphens: manual; overflow-wrap: normal; }
 .bb-sup figure { margin: 0; display: grid; gap: 10px; align-content: start; }
 .bb-sup figure > img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 12px; background: #d9d9d9; transition: transform .7s cubic-bezier(.2,.9,.2,1); }
 .bb-sup figcaption { font: 500 12px/1 var(--mono); color: var(--bb-muted); text-transform: uppercase; letter-spacing: .06em; }
-.bb-sup-ya { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
-.bb-sup-ya .bb-bag { grid-column: span 2; grid-row: span 2; position: relative; }
-.bb-sup-ya .bb-bag > img { position: absolute; inset: 0; aspect-ratio: auto; height: 100%; object-fit: cover; }
-.bb-sup-ya .bb-bag figcaption { position: absolute; left: 12px; bottom: 12px; background: rgba(0,0,0,.55); color: #f3ece6; padding: 6px 8px; border-radius: 4px; }
-.bb-sup .bb-vars, .bb-sup .bb-vars .sw-grid { display: contents; }
-.bb-vars > figcaption { grid-column: 1 / -1; }
-.bb-vars .sw-grid img { width: 100%; height: auto; align-self: start; border-radius: 8px; transition: transform .5s cubic-bezier(.2,.9,.2,1); }
-.bb-vars .sw-grid img:hover { transform: translateY(-3px) scale(1.03); }
-@media (max-width: 760px) { .bb-top { grid-template-columns: 1fr; } .bb-sup { gap: 8px; } .bb-sup-ya { grid-template-columns: repeat(2, minmax(0, 1fr)); } .bb-sup-ya .bb-bag { grid-row: auto; } .bb-sup-ya .bb-bag > img { position: static; aspect-ratio: 16/10; } }
+.ya-vars { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.ya-vars img { width: 100%; height: auto; border-radius: 8px; transition: transform .5s cubic-bezier(.2,.9,.2,1); }
+.ya-vars img:hover { transform: translateY(-3px) scale(1.03); }
+@media (max-width: 760px) { .bb-top { grid-template-columns: 1fr; } .bb-sup { gap: 8px; } .ya-vars { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; } }
 .photo { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); margin-top: 22px; align-items: center; background: var(--ink); color: var(--on-ink); border-radius: 18px; overflow: hidden; }
 .photo figure { margin: 0; height: 100%; }
 .photo figure img { width: 100%; height: 100%; object-fit: cover; }
@@ -562,14 +556,17 @@ body.cv-open > :not(#cv-view):not(.bar) { display: none !important; }
           <div class="bb-text">
             <span class="tag">Identité de marque · logo</span>
             <h3>Yash<small>Yacine Aro Shop</small></h3>
-            <p>Le logo, puis son application sur support et ses 8 déclinaisons couleur, pour s'adapter à chaque usage tout en gardant la même identité.</p>
+            <p>Le logo, puis son application sur sac, t-shirt et casquette, et ses 8 déclinaisons couleur, pour s'adapter à chaque usage tout en gardant la même identité.</p>
           </div>
         </div>
         <p class="bb-label">Application du logo sur supports</p>
-        <div class="bb-sup bb-sup-ya">
-          <figure class="bb-bag"><img src="img/kyash-mockup.jpg" alt="Logo Yash sur un sac noir" loading="lazy"><figcaption>Sac</figcaption></figure>
-          <figure class="bb-vars"><div class="sw-grid"><img src="img/kyash/kyash-variante-1.jpg" alt="Logo Yash, Yacine Aro Shop, sur fond rouge" loading="lazy" style="--d:0.00s"><img src="img/kyash/kyash-variante-2.jpg" alt="Logo Yash, Yacine Aro Shop, sur fond corail" loading="lazy" style="--d:0.06s"><img src="img/kyash/kyash-variante-3.jpg" alt="Logo Yash, Yacine Aro Shop, sur fond violet" loading="lazy" style="--d:0.12s"><img src="img/kyash/kyash-variante-4.jpg" alt="Logo Yash, Yacine Aro Shop, sur fond pêche" loading="lazy" style="--d:0.18s"><img src="img/kyash/kyash-variante-5.jpg" alt="Logo Yash, Yacine Aro Shop, sur fond ocre" loading="lazy" style="--d:0.24s"><img src="img/kyash/kyash-variante-6.jpg" alt="Logo Yash, Yacine Aro Shop, sur fond bordeaux" loading="lazy" style="--d:0.30s"><img src="img/kyash/kyash-variante-7.jpg" alt="Logo Yash, Yacine Aro Shop, sur fond noir, logo crème" loading="lazy" style="--d:0.36s"><img src="img/kyash/kyash-variante-8.jpg" alt="Logo Yash, Yacine Aro Shop, sur fond noir, logo bronze" loading="lazy" style="--d:0.42s"></div><figcaption>8 déclinaisons couleur</figcaption></figure>
+        <div class="bb-sup">
+          <figure><img src="img/kyash/yash-sac.jpg" alt="Logo Yash sur un sac noir" loading="lazy"><figcaption>Sac</figcaption></figure>
+          <figure><img src="img/kyash/yash-tshirt.jpg" alt="Logo Yash sur un t-shirt blanc" loading="lazy"><figcaption>T-shirt</figcaption></figure>
+          <figure><img src="img/kyash/yash-casquette.jpg" alt="Logo Yash brodé sur une casquette noire" loading="lazy"><figcaption>Casquette</figcaption></figure>
         </div>
+        <p class="bb-label">8 déclinaisons couleur</p>
+        <div class="sw-grid ya-vars"><img src="img/kyash/kyash-variante-1.jpg" alt="Logo Yash, Yacine Aro Shop, sur fond rouge" loading="lazy" style="--d:0.00s"><img src="img/kyash/kyash-variante-2.jpg" alt="Logo Yash, Yacine Aro Shop, sur fond corail" loading="lazy" style="--d:0.06s"><img src="img/kyash/kyash-variante-3.jpg" alt="Logo Yash, Yacine Aro Shop, sur fond violet" loading="lazy" style="--d:0.12s"><img src="img/kyash/kyash-variante-4.jpg" alt="Logo Yash, Yacine Aro Shop, sur fond pêche" loading="lazy" style="--d:0.18s"><img src="img/kyash/kyash-variante-5.jpg" alt="Logo Yash, Yacine Aro Shop, sur fond ocre" loading="lazy" style="--d:0.24s"><img src="img/kyash/kyash-variante-6.jpg" alt="Logo Yash, Yacine Aro Shop, sur fond bordeaux" loading="lazy" style="--d:0.30s"><img src="img/kyash/kyash-variante-7.jpg" alt="Logo Yash, Yacine Aro Shop, sur fond noir, logo crème" loading="lazy" style="--d:0.36s"><img src="img/kyash/kyash-variante-8.jpg" alt="Logo Yash, Yacine Aro Shop, sur fond noir, logo bronze" loading="lazy" style="--d:0.42s"></div>
       </article>
 
       <article class="portraits">
@@ -888,7 +885,7 @@ document.addEventListener("play", (e) => {
   });
 
   // éléments révélés au défilement, avec décalage entre voisins
-  const groups = [".cue", "main .sub", ".proj-intro p", ".about .txt > *", ".skill", ".feature .body > *", ".brand", ".mosaic .note", ".bb-text", ".bb-label", ".bb-vars .sw-grid img", ".phead", ".photo .body > *", ".album figcaption", ".clip", ".av article", ".tl li", ".cvcard", ".ia .lead", ".ia .cert", ".ia ol li", ".line", ".hero-grid > div:first-child > *"];
+  const groups = [".cue", "main .sub", ".proj-intro p", ".about .txt > *", ".skill", ".feature .body > *", ".brand", ".mosaic .note", ".bb-text", ".bb-label", ".ya-vars img", ".phead", ".photo .body > *", ".album figcaption", ".clip", ".av article", ".tl li", ".cvcard", ".ia .lead", ".ia .cert", ".ia ol li", ".line", ".hero-grid > div:first-child > *"];
   groups.forEach((sel) => document.querySelectorAll(sel).forEach((el) => {
     const sibs = [...el.parentElement.children].filter((c) => c.matches(sel));
     el.classList.add("rv"); el.style.setProperty("--d", `${Math.min(sibs.indexOf(el), 6) * 0.08}s`);
