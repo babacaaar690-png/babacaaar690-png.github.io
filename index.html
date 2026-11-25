@@ -206,7 +206,13 @@ h2 { hyphens: manual; overflow-wrap: normal; }
 
 .bb { margin-top: 22px; border-radius: 18px; overflow: hidden; padding: clamp(18px, 2.6vw, 32px); display: grid; gap: clamp(18px, 2.4vw, 28px); }
 .bb-su { background: #2d3a1f; color: #f4efe2; --bb-muted: #c7c4a8; --bb-tag: #e8b64c; }
+.bb-su .bb-top { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); }
+.su-pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
 .bb-su .bb-logo { background: #fff; }
+.su-anim { background: #f3ead8 !important; }
+.su-anim video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.bb-logo figcaption { position: absolute; left: 10px; top: 10px; font: 500 11px/1 var(--mono); text-transform: uppercase; letter-spacing: .06em; background: rgba(0,0,0,.55); color: #fff; padding: 5px 7px; border-radius: 4px; }
+@media (max-width: 760px) { .bb-su .bb-top { grid-template-columns: 1fr; } }
 .bb-su .bb-logo img { padding: 6% 10%; }
 .bb-sup.bb-sup-su { grid-template-columns: minmax(0, .8fr) minmax(0, .6fr) minmax(0, .6fr); grid-template-rows: auto auto; }
 .bb-sup.bb-sup-su .su-wide { grid-column: span 2; }
@@ -549,7 +555,10 @@ body.cv-open > :not(#cv-view):not(.bar) { display: none !important; }
 
       <article class="bb bb-su">
         <div class="bb-top">
-          <figure class="bb-logo"><img src="img/sunu-cereales.jpg" alt="Logo Sunu Céréales" loading="lazy"></figure>
+          <div class="su-pair">
+            <figure class="bb-logo"><img src="img/sunu-cereales.jpg" alt="Logo Sunu Céréales" loading="lazy"><figcaption>Logo</figcaption></figure>
+            <figure class="bb-logo su-anim"><video src="videos/sunu-logo-animation.mp4" poster="img/sunu/sunu-logo-anim-poster.jpg" muted loop playsinline autoplay preload="metadata" aria-label="Animation du logo Sunu Céréales"></video><figcaption>Animation du logo</figcaption></figure>
+          </div>
           <div class="bb-text">
             <span class="tag">Identité de marque · agroalimentaire</span>
             <h3>Sunu Céréales<small>Céréales et produits locaux</small></h3>
@@ -857,7 +866,8 @@ lb.addEventListener("touchend", (e) => { if (tx === null) return; const dx = e.c
 /* ---------- une seule vidéo à la fois ---------- */
 document.addEventListener("play", (e) => {
   if (!(e.target instanceof HTMLMediaElement)) return;
-  document.querySelectorAll("video, audio").forEach((m) => { if (m !== e.target && !m.paused) m.pause(); });
+  if (e.target.loop && e.target.muted) return;
+  document.querySelectorAll("video, audio").forEach((m) => { if (m !== e.target && !m.paused && !(m.loop && m.muted)) m.pause(); });
 }, true);
 
 /* ---------- grands titres : aucun mot coupé, la taille s'adapte ---------- */
