@@ -214,12 +214,12 @@ h2 { hyphens: manual; overflow-wrap: normal; }
 .bb-logo figcaption { position: absolute; left: 10px; top: 10px; font: 500 11px/1 var(--mono); text-transform: uppercase; letter-spacing: .06em; background: rgba(0,0,0,.55); color: #fff; padding: 5px 7px; border-radius: 4px; }
 @media (max-width: 760px) { .bb-su .bb-top { grid-template-columns: 1fr; } }
 .bb-su .bb-logo img { padding: 6% 10%; }
-.bb-sup.bb-sup-su { grid-template-columns: minmax(0, .8fr) minmax(0, .6fr) minmax(0, .6fr); grid-template-rows: auto auto; }
+.bb-sup.bb-sup-su { grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr); align-items: stretch; }
 .bb-sup.bb-sup-su .su-wide { grid-column: span 2; }
-.bb-sup.bb-sup-su .su-pot { grid-row: span 2; }
+.bb-sup.bb-sup-su figure { grid-template-rows: 1fr auto; }
 .bb-sup.bb-sup-su .su-pot { grid-template-rows: 1fr auto; }
 .bb-sup.bb-sup-su .su-pot > img { aspect-ratio: auto; height: 100%; min-height: 0; object-fit: cover; }
-.bb-sup.bb-sup-su figure:not(.su-pot) > img { aspect-ratio: auto; }
+.bb-sup.bb-sup-su figure:not(.su-pot) > img { aspect-ratio: auto; height: 100%; min-height: 0; object-fit: cover; }
 @media (max-width: 760px) { .bb-sup.bb-sup-su { grid-template-columns: 1fr; } .bb-sup.bb-sup-su .su-wide { grid-column: auto; } .bb-sup.bb-sup-su .su-pot { grid-row: auto; } .bb-sup.bb-sup-su .su-pot > img { aspect-ratio: 4/5; } }
 .bb-ov { background: #10245e; color: #eaf2ff; --bb-muted: #a9bde6; --bb-tag: #57c3f2; }
 .bb-ov .bb-logo { background: #fff; }
@@ -562,15 +562,13 @@ body.cv-open > :not(#cv-view):not(.bar) { display: none !important; }
           <div class="bb-text">
             <span class="tag">Identité de marque · agroalimentaire</span>
             <h3>Sunu Céréales<small>Céréales et produits locaux</small></h3>
-            <p>Un logo qui réunit épis et graines dans un bol, puis appliqué sur les emballages de la gamme : pot de pâte d'arachide et sachets d'Arraw et de Sanhal.</p>
+            <p>Un logo qui réunit épis et graines dans un bol, puis appliqué sur les emballages de la gamme : pot de pâte d'arachide et sachets d'Arraw.</p>
           </div>
         </div>
         <p class="bb-label">Application du logo sur supports</p>
         <div class="bb-sup bb-sup-su">
           <figure class="su-pot"><img src="img/sunu/sunu-pot-tigadegue.jpg" alt="Pot de pâte d'arachide Tigadegue avec le logo Sunu Céréales" loading="lazy"><figcaption>Pot · Tigadegue</figcaption></figure>
           <figure><img src="img/sunu/sunu-arraw.jpg" alt="Deux sachets d'Arraw Sunu Céréales" loading="lazy"><figcaption>Sachets · Arraw</figcaption></figure>
-          <figure><img src="img/sunu/sunu-sanhal.jpg" alt="Sachet de Sanhal Sunu Céréales" loading="lazy"><figcaption>Sachet · Sanhal</figcaption></figure>
-          <figure class="su-wide"><img src="img/sunu/sunu-arraw-gamme.jpg" alt="Gamme de sachets d'Arraw Sunu Céréales en trois formats" loading="lazy"><figcaption>Gamme de sachets</figcaption></figure>
         </div>
       </article>
 
