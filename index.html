@@ -205,6 +205,15 @@ h2 { hyphens: manual; overflow-wrap: normal; }
 @media (max-width: 560px) { .mosaic { grid-template-columns: 1fr; } }
 
 .bb { margin-top: 22px; border-radius: 18px; overflow: hidden; padding: clamp(18px, 2.6vw, 32px); display: grid; gap: clamp(18px, 2.4vw, 28px); }
+.bb-su { background: #2d3a1f; color: #f4efe2; --bb-muted: #c7c4a8; --bb-tag: #e8b64c; }
+.bb-su .bb-logo { background: #fff; }
+.bb-su .bb-logo img { padding: 6% 10%; }
+.bb-sup.bb-sup-su { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); grid-template-rows: auto auto; }
+.bb-sup.bb-sup-su .su-pot { grid-row: span 2; }
+.bb-sup.bb-sup-su .su-pot { grid-template-rows: 1fr auto; }
+.bb-sup.bb-sup-su .su-pot > img { aspect-ratio: auto; height: 100%; min-height: 0; object-fit: cover; }
+.bb-sup.bb-sup-su figure:not(.su-pot) > img { aspect-ratio: auto; }
+@media (max-width: 760px) { .bb-sup.bb-sup-su { grid-template-columns: 1fr; } .bb-sup.bb-sup-su .su-pot { grid-row: auto; } .bb-sup.bb-sup-su .su-pot > img { aspect-ratio: 4/5; } }
 .bb-ov { background: #10245e; color: #eaf2ff; --bb-muted: #a9bde6; --bb-tag: #57c3f2; }
 .bb-ov .bb-logo { background: #fff; }
 .bb-ov .bb-logo img { padding: 8% 10%; }
@@ -525,10 +534,6 @@ body.cv-open > :not(#cv-view):not(.bar) { display: none !important; }
         </div>
       </article>
 
-      <div class="brands">
-        <article class="brand"><figure><img src="img/sunu-cereales.jpg" alt="Logo Sunu Céréales"></figure><div class="m"><h3>Sunu Céréales</h3><p>Identité de marque · agroalimentaire</p></div></article>
-      </div>
-
       <div class="mosaic">
         <figure><img src="img/charte-naat-2.jpg" alt="Charte graphique NAAT : logos, palette de couleurs, typographie et exemples d'application"></figure>
         <div class="note">
@@ -540,6 +545,23 @@ body.cv-open > :not(#cv-view):not(.bar) { display: none !important; }
           <ul><li>Affiches et supports de communication</li><li>Mockups et présentations de marque</li><li>Logos et cohérence visuelle</li></ul>
         </div>
       </div>
+
+      <article class="bb bb-su">
+        <div class="bb-top">
+          <figure class="bb-logo"><img src="img/sunu-cereales.jpg" alt="Logo Sunu Céréales" loading="lazy"></figure>
+          <div class="bb-text">
+            <span class="tag">Identité de marque · agroalimentaire</span>
+            <h3>Sunu Céréales<small>Céréales et produits locaux</small></h3>
+            <p>Un logo qui réunit épis et graines dans un bol, puis appliqué sur les emballages de la gamme : pot de pâte d'arachide et sachets de céréales.</p>
+          </div>
+        </div>
+        <p class="bb-label">Application du logo sur supports</p>
+        <div class="bb-sup bb-sup-su">
+          <figure class="su-pot"><img src="img/sunu/sunu-pot-tigadegue.jpg" alt="Pot de pâte d'arachide Tigadegue avec le logo Sunu Céréales" loading="lazy"><figcaption>Pot · Tigadegue</figcaption></figure>
+          <figure><img src="img/sunu/sunu-arraw.jpg" alt="Deux sachets d'Arraw Sunu Céréales" loading="lazy"><figcaption>Sachets · Arraw</figcaption></figure>
+          <figure><img src="img/sunu/sunu-arraw-gamme.jpg" alt="Gamme de sachets d'Arraw Sunu Céréales en trois formats" loading="lazy"><figcaption>Gamme de sachets</figcaption></figure>
+        </div>
+      </article>
 
       <article class="bb bb-ov">
         <div class="bb-top">
