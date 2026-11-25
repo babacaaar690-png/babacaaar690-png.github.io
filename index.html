@@ -223,6 +223,9 @@ h2 { hyphens: manual; overflow-wrap: normal; }
 @media (max-width: 760px) { .bb-sup.bb-sup-su { grid-template-columns: 1fr; } .bb-sup.bb-sup-su .su-wide { grid-column: auto; } .bb-sup.bb-sup-su .su-pot { grid-row: auto; } .bb-sup.bb-sup-su .su-pot > img { aspect-ratio: 4/5; } }
 .bb-ov { background: #10245e; color: #eaf2ff; --bb-muted: #a9bde6; --bb-tag: #57c3f2; }
 .bb-ov .bb-logo { background: #fff; }
+.bb-ov .bb-top { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); }
+.ov-anim { background: #fff !important; }
+@media (max-width: 760px) { .bb-ov .bb-top { grid-template-columns: 1fr; } }
 .bb-ov .bb-logo img { padding: 8% 10%; }
 .bb-sup.bb-sup-one { grid-template-columns: 1fr; }
 .bb-sup.bb-sup-one figure > img { aspect-ratio: auto; width: auto; max-width: 100%; height: auto; max-height: 620px; margin-inline: auto; object-fit: contain; }
@@ -574,7 +577,10 @@ body.cv-open > :not(#cv-view):not(.bar) { display: none !important; }
 
       <article class="bb bb-ov">
         <div class="bb-top">
-          <figure class="bb-logo"><img src="img/ovale.jpg" alt="Logo Ovale" loading="lazy"></figure>
+          <div class="su-pair">
+            <figure class="bb-logo"><img src="img/ovale.jpg" alt="Logo Ovale" loading="lazy"><figcaption>Logo</figcaption></figure>
+            <figure class="bb-logo su-anim ov-anim"><video src="videos/ovale-logo-animation.mp4" poster="img/ovale/ovale-logo-anim-poster.jpg" muted loop playsinline autoplay preload="metadata" aria-label="Animation du logo Ovale"></video><figcaption>Animation du logo</figcaption></figure>
+          </div>
           <div class="bb-text">
             <span class="tag">Identité visuelle · logo</span>
             <h3>Ovale<small>Univers de l'eau</small></h3>
